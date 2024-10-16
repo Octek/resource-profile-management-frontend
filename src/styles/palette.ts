@@ -1,7 +1,7 @@
 export const defaultPalette = (theme: any) => {
   return {
     primary: {
-      main: theme?.primary_color || "#13416F",
+      main: theme?.primary_color || "#5258fb",
       green: "rgba(0, 186, 190, 1)",
       selectedGreen: "#E5E4E2",
       layoutBg: "#F3F3F3",
