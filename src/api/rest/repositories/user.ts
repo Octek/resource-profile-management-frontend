@@ -1,5 +1,6 @@
 import axiosInstance from "~/config/axiosInstance";
-import { AUTH_ENDPOINTS } from "../endpoints";
+
+import { AUTH_ENDPOINTS } from "~/rest/endpoints";
 
 export const addUser = async (body: any) => {
   const { data: response } = await axiosInstance.post(

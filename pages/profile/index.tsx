@@ -6,12 +6,12 @@ import User from "~/modules/user";
 import { AppHead } from "~/core/components/Apphead";
 import { labels } from "~/core/utils/labels";
 
-const FirstPage: NextApplicationPage = () => {
+const UserProfile: NextApplicationPage = () => {
   return (
     <Fragment>
-      <AppHead title={labels.firstPageTitle} />
+      <AppHead title={labels.userPageTitle} />
       <User />
     </Fragment>
   );
 };
-export default FirstPage;
+export default UserProfile;

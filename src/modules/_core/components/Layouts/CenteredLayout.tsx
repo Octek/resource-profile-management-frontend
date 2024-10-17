@@ -1,7 +1,7 @@
 import Grid from "@mui/material/Grid";
-import Image from "next/image";
+// import Image from "next/image";
 
-import SideImage from "~/public/assets/Isolation_Mode.svg";
+// import SideImage from "~/public/assets/Isolation_Mode.svg";
 
 const CenteredLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -29,11 +29,11 @@ const CenteredLayout = ({ children }: { children: React.ReactNode }) => {
         alignItems="center"
         justifyContent="right"
       >
-        <Image
+        {/* <Image
           src={SideImage}
           alt=""
           style={{ height: "100vh", width: "100%" }}
-        />
+        /> */}
       </Grid>
 
       <Grid container item xs={12} flexDirection="column" position="absolute">

@@ -1,142 +1,224 @@
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import Paper from "@mui/material/Paper";
+/* eslint-disable func-style */
+/* eslint-disable react/no-multi-comp */
+import { Fragment } from "react";
+import FacebookIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import InputLabel from "@mui/material/InputLabel";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
-import { FooterProps } from "~/core/interfaces/app.interface";
+import SitemarkIcon from "~/modules/_core/components/SitemarkIcon";
 
-const Footer = ({ currentCompany }: FooterProps) => {
-  const currentYear = new Date().getFullYear();
-
-  const copyRightInfo = `© ${currentYear} All Rights Reserved`;
+function Copyright() {
   return (
-    <Paper
-      sx={{ position: "relative", bottom: 0, left: 0, right: 0, zIndex: 100 }}
-      elevation={3}
-    >
-      <BottomNavigation
-        showLabels
-        sx={{ backgroundColor: "#15416E", height: "32px" }}
-      >
-        <BottomNavigationAction
-          label={`UAPI ADMIN PORTAL (Version : ${process.env.NEXT_PUBLIC_APP_VERSION})`}
-          sx={{
-            "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-              color: "white",
-              width: 200,
-            },
-          }}
-          disabled
-        />
-      </BottomNavigation>
+    <Typography variant="body2" sx={{ color: "text.secondary", marginTop: 1 }}>
+      {"Copyright © "}
+      <Link color="text.secondary" href="https://mui.com/">
+        Sitemark
+      </Link>
+      &nbsp;
+      {new Date().getFullYear()}
+    </Typography>
+  );
+}
 
-      <BottomNavigation
-        showLabels
-        sx={{ backgroundColor: "#15416E", height: "9px" }}
-      >
-        <BottomNavigationAction
-          label={currentCompany}
-          sx={{
-            "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-              color: "white",
-              fontSize: "10px",
-            },
-          }}
-          disabled
-        />
-      </BottomNavigation>
-      <BottomNavigation
-        showLabels
+export default function Footer() {
+  return (
+    <Fragment>
+      <Divider />
+      <Container
         sx={{
-          backgroundColor: "#15416E",
-          height: "45px",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          gap: "140px",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 4, sm: 8 },
+          paddingY: { xs: 8, sm: 10 },
+          textAlign: { sm: "center", md: "left" },
         }}
       >
-        <BottomNavigation
-          showLabels
+        <Box
           sx={{
-            backgroundColor: "#15416E",
-            height: "35px",
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            width: "100%",
+            justifyContent: "space-between",
           }}
         >
-          <BottomNavigationAction
-            label="API Documentation"
+          <Box
             sx={{
-              "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-                color: "white",
-                fontSize: "12px",
-                whiteSpace: "nowrap",
-              },
+              display: "flex",
+              flexDirection: "column",
+              gap: 4,
+              minWidth: { xs: "100%", sm: "60%" },
             }}
-          />
-
-          <BottomNavigationAction
-            label="Developer Forum"
+          >
+            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
+              <SitemarkIcon />
+              <Typography
+                variant="body2"
+                gutterBottom
+                sx={{ fontWeight: 600, marginTop: 2 }}
+              >
+                Join the newsletter
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "text.secondary", marginBottom: 2 }}
+              >
+                Subscribe for weekly updates. No spams ever!
+              </Typography>
+              <InputLabel htmlFor="email-newsletter">Email</InputLabel>
+              <Stack direction="row" spacing={1} useFlexGap>
+                <TextField
+                  id="email-newsletter"
+                  hiddenLabel
+                  size="small"
+                  variant="outlined"
+                  fullWidth
+                  aria-label="Enter your email address"
+                  placeholder="Your email address"
+                  // slotProps={{
+                  //   htmlInput: {
+                  //     autoComplete: "off",
+                  //     "aria-label": "Enter your email address",
+                  //   },
+                  // }}
+                  sx={{ width: "250px" }}
+                />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  sx={{ flexShrink: 0 }}
+                >
+                  Subscribe
+                </Button>
+              </Stack>
+            </Box>
+          </Box>
+          <Box
             sx={{
-              "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-                color: "white",
-                whiteSpace: "nowrap",
-                fontSize: "12px",
-              },
+              display: { xs: "none", sm: "flex" },
+              flexDirection: "column",
+              gap: 1,
             }}
-          />
-        </BottomNavigation>
-        <BottomNavigation
-          showLabels
-          sx={{ backgroundColor: "#15416E", height: "35px" }}
-        >
-          <BottomNavigationAction
-            label="Terms of Use"
+          >
+            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
+              Product
+            </Typography>
+            <Link color="text.secondary" variant="body2" href="#">
+              Features
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Testimonials
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Highlights
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Pricing
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              FAQs
+            </Link>
+          </Box>
+          <Box
             sx={{
-              "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-                color: "white",
-                whiteSpace: "nowrap",
-                fontSize: "12px",
-              },
+              display: { xs: "none", sm: "flex" },
+              flexDirection: "column",
+              gap: 1,
             }}
-          />
-          <BottomNavigationAction
-            label="API Status"
+          >
+            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
+              Company
+            </Typography>
+            <Link color="text.secondary" variant="body2" href="#">
+              About us
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Careers
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Press
+            </Link>
+          </Box>
+          <Box
             sx={{
-              "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-                color: "white",
-                whiteSpace: "nowrap",
-                fontSize: "12px",
-              },
+              display: { xs: "none", sm: "flex" },
+              flexDirection: "column",
+              gap: 1,
             }}
-          />
-          <BottomNavigationAction
-            label="Support"
-            sx={{
-              "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-                color: "white",
-                whiteSpace: "nowrap",
-                fontSize: "12px",
-              },
-            }}
-          />
-        </BottomNavigation>
-      </BottomNavigation>
-      <BottomNavigation
-        showLabels
-        sx={{ backgroundColor: "white", height: "18px" }}
-      >
-        <BottomNavigationAction
-          label={copyRightInfo}
-          disabled
+          >
+            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
+              Legal
+            </Typography>
+            <Link color="text.secondary" variant="body2" href="#">
+              Terms
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Privacy
+            </Link>
+            <Link color="text.secondary" variant="body2" href="#">
+              Contact
+            </Link>
+          </Box>
+        </Box>
+        <Box
           sx={{
-            "& .MuiSvgIcon-root, & .MuiBottomNavigationAction-label": {
-              color: "black",
-            },
-            whiteSpace: "nowrap",
+            display: "flex",
+            justifyContent: "space-between",
+            paddingTop: { xs: 4, sm: 8 },
+            width: "100%",
+            borderTop: "1px solid",
+            borderColor: "divider",
           }}
-        />
-      </BottomNavigation>
-    </Paper>
+        >
+          <div>
+            <Link color="text.secondary" variant="body2" href="#">
+              Privacy Policy
+            </Link>
+            <Typography sx={{ display: "inline", marginX: 0.5, opacity: 0.5 }}>
+              &nbsp;•&nbsp;
+            </Typography>
+            <Link color="text.secondary" variant="body2" href="#">
+              Terms of Service
+            </Link>
+            <Copyright />
+          </div>
+          <Stack
+            direction="row"
+            spacing={1}
+            useFlexGap
+            sx={{ justifyContent: "left", color: "text.secondary" }}
+          >
+            <IconButton
+              color="inherit"
+              size="small"
+              href="https://github.com/mui"
+              aria-label="GitHub"
+              sx={{ alignSelf: "center" }}
+            >
+              <FacebookIcon />
+            </IconButton>
+            <IconButton
+              color="inherit"
+              size="small"
+              href="https://www.linkedin.com/company/mui/"
+              aria-label="LinkedIn"
+              sx={{ alignSelf: "center" }}
+            >
+              <LinkedInIcon />
+            </IconButton>
+          </Stack>
+        </Box>
+      </Container>
+    </Fragment>
   );
-};
-
-export default Footer;
+}

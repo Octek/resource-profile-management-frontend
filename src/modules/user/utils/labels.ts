@@ -1,3 +1,3 @@
 export const labels = {
-  dashboard: "Dashboard",
+  userProfile: "User",
 };
