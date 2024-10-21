@@ -15,13 +15,23 @@ import {
   experienceKeyPoints,
   userTechnologies,
 } from "~/modules/user/utils/helper";
+import { calculateDuration } from "~/modules/user/utils/helper";
+import { labels } from "~/modules/user/utils/labels";
 
 export default function ExperienceCard({
+  position,
+  company,
+  description,
+  start_date,
+  end_date,
+  is_currently_working,
   isFirstElement,
   isLastElement,
+  skills,
+  responsibilities
 }: UserExperienceCardProps) {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack  direction="row" spacing={2}>
       <Box
         position="relative"
         sx={{
@@ -68,28 +78,23 @@ export default function ExperienceCard({
           }}
         />
       </Box>
-      <Box flexDirection="column" paddingBottom={2}>
+      <Box width={'100%'} flexDirection="column" paddingBottom={2}>
         <Box flexDirection="column">
           <Typography variant="h1" color="secondary.purple">
-            Frontend Developer
+            {position}
           </Typography>
           <Typography variant="h3" paddingTop={0.5}>
-            SmartGift - 5 months
+            {company} - {calculateDuration(start_date,is_currently_working,end_date)}
           </Typography>
         </Box>
         <Typography paddingTop={2} variant="h3">
-          SmartGift is a recognized leader in providing innovative, thoughtful
-          and convenient gift sending and receiving experiences to major retail
-          brands and businesses in the US, Europe and Asia. Their solutions
-          enable consumers and businesses to connect and deepen relationships
-          with friends, family, employees and clients. Responsibilities:
+          {description}
         </Typography>
-
         <List
           disablePadding
           sx={{ width: "100%", marginTop: 2, paddingLeft: 2 }}
         >
-          {experienceKeyPoints.map((value: string) => (
+          {responsibilities && responsibilities.map((value: string) => (
             <ListItem
               key={value}
               disableGutters
@@ -111,15 +116,15 @@ export default function ExperienceCard({
             </ListItem>
           ))}
         </List>
-        <Grid direction="row" container xs={12} paddingTop={2} rowGap={2}>
+        <Grid direction="row" container xs={12} paddingTop={2} rowGap={2} >
           <Grid item xs={4}>
             <Typography variant="h1" color="secondary.purple">
-              Technologies :
+              {labels.technologies}
             </Typography>
           </Grid>
           <Grid container item xs={8} direction="row" rowGap={1} columnGap={1}>
-            {userTechnologies.map((value: string) => (
-              <TechnologiesCard key={value} data={value} />
+            {skills && skills.map((skill,index) => (
+              <TechnologiesCard key={index} skill={skill} />
             ))}
           </Grid>
         </Grid>

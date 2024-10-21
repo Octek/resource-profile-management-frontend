@@ -14,11 +14,24 @@ import Footer from "~/core/components/Footer";
 import { useBreakpoint } from "~/core/hooks/useBreakpoints";
 // import Latest from "~/core/components/Latest";
 // import MainContent from "~/core/components/MainContent";
+import { userJsonResponse } from "~/modules/user/utils/helper";
 
 export default function User() {
   const theme = useTheme();
   const [breakpoint, setBreakpoint] = useState<string>("xs");
   useBreakpoint(theme, setBreakpoint);
+
+  const userResponse = userJsonResponse.data;
+  const userData = {
+    full_name: `${userResponse.first_name} ${userResponse.last_name}`,
+    job_title: userResponse.job_title,
+    avatar: "https://i.ibb.co/jbxvktF/avatar.webp",
+    bio: userResponse.bio,
+  };
+  const experiences = userResponse.experiences;
+  const educations = userResponse.educations;
+  const skills = userResponse.skills;
+
 
   console.log("breakpoint : ", breakpoint);
   return (
@@ -47,23 +60,34 @@ export default function User() {
         >
           <Grid item container xs={12} md={8}>
             <Grid item>
-              <UserInfo />
+              <UserInfo
+                name={userData.full_name}
+                job_title={userData.job_title}
+                bio={userData.bio}
+              />
             </Grid>
             {(breakpoint === "md" ||
               breakpoint === "lg" ||
               breakpoint === "xl") && (
               <Grid item xs={0} md={12}>
-                <UserSkills />
+                <UserSkills
+                  skills={skills}
+                />
               </Grid>
             )}
           </Grid>
           <Grid item xs={12} md={4} display="flex" justifyContent="center">
-            <UserAvatar />
+            <UserAvatar
+                name={userData.full_name}
+                avatar={userData.avatar}
+             />
           </Grid>
         </Grid>
         {(breakpoint === "sm" || breakpoint === "xs") && (
           <Grid xs={12}>
-            <UserSkills />
+            <UserSkills
+              skills={skills}
+            />
           </Grid>
         )}
         <Grid
@@ -75,7 +99,9 @@ export default function User() {
           sx={{ backgroundColor: "primary.greyBg" }}
         >
           <Grid item container xs={12} md={8}>
-            <UserExperience />
+            <UserExperience
+              experiences={experiences} 
+            />
           </Grid>
           <Grid item xs={12} md={4} />
         </Grid>
@@ -88,7 +114,8 @@ export default function User() {
           sx={{ backgroundColor: "primary.greyBg" }}
         >
           <Grid item container xs={12} md={8}>
-            <UserEducation />
+            <UserEducation
+              educations={educations} />
           </Grid>
           <Grid item xs={12} md={4} />
         </Grid>

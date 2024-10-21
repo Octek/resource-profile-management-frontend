@@ -4,9 +4,11 @@ import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
-import avatar from "~/public/assets/avatar.jpeg";
+// import avatar from "~/public/assets/avatar.jpeg";
+import { UserAvatarProps } from "~/modules/user/interfaces/user.interface";
+import { labels } from "~/modules/user/utils/labels";
 
-export default function UserAvatar() {
+export default function UserAvatar({name, avatar}:UserAvatarProps) {
   const handleClick = () => {
     console.info("You clicked the Chip.");
   };
@@ -29,6 +31,8 @@ export default function UserAvatar() {
       <Image
         src={avatar}
         alt="No Uploaded Logo"
+        width={200}
+        height={200}
         style={{
           objectFit: "cover",
           borderRadius: "10px",
@@ -37,10 +41,10 @@ export default function UserAvatar() {
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Nurullah A.
+          {name}
         </Typography>
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          Watch Video
+         {labels.watchVideo}
         </Typography>
         <Chip
           label="GET STARTED"

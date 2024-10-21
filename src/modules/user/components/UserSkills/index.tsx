@@ -6,11 +6,17 @@ import Typography from "@mui/material/Typography";
 
 import SkillCard from "~/modules/user/components/UserSkills/components/SkillCard";
 import { mainSkills, otherSkills } from "~/modules/user/utils/helper";
+import { Skill } from "~/modules/user/interfaces/user.interface";
+import { groupSkillsByCategory } from "~/modules/user/utils/helper";
 
-export default function UserSkills() {
+interface UserSkillsProps {
+  skills: Array<Skill>;
+}
+export default function UserSkills({ skills }: UserSkillsProps) {
   const handleClick = () => {
     console.info("You clicked the Chip.");
   };
+  const groupedSkills = groupSkillsByCategory(skills);
   return (
     <Card
       elevation={0}
@@ -25,7 +31,26 @@ export default function UserSkills() {
     >
       <CardContent sx={{ width: "100%" }}>
         <Grid direction="row" container xs={12} spacing={2}>
-          <Grid item xs={6}>
+        {Object.entries(groupedSkills).map(([categoryName, skills]) => (
+        <Grid item xs={6} key={categoryName}>
+            <Typography variant="h1" paddingY={2}>
+              {categoryName}
+            </Typography>
+            <Grid
+              container
+              item
+              xs={12}
+              direction="column"
+              rowGap={1}
+              columnGap={1}
+            >
+              {skills.map((skill: Skill,index) => (
+                <SkillCard key={index} skill={skill} />
+              ))}
+            </Grid>
+          </Grid>
+      ))}
+          {/* <Grid item xs={6}>
             <Typography variant="h1" paddingY={2}>
               Main expertise
             </Typography>
@@ -58,7 +83,7 @@ export default function UserSkills() {
                 <SkillCard key={value} data={value} />
               ))}
             </Grid>
-          </Grid>
+          </Grid> */}
         </Grid>
       </CardContent>
 

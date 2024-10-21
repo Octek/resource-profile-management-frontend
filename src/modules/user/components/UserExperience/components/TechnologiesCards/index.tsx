@@ -7,7 +7,7 @@ import { UserSkillDataProps } from "~/modules/user/interfaces/user.interface";
 
 import reactIcon from "~/public/assets/reactjs.webp";
 
-export default function TechnologiesCard({ data }: UserSkillDataProps) {
+export default function TechnologiesCard({ skill }: UserSkillDataProps) {
   return (
     <Box
       sx={{
@@ -30,7 +30,7 @@ export default function TechnologiesCard({ data }: UserSkillDataProps) {
           }}
         />
         <Typography variant="h3" paddingY={2}>
-          {data}
+          {skill.name}
         </Typography>
       </Stack>
     </Box>

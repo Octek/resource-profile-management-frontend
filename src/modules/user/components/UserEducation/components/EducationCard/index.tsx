@@ -4,8 +4,15 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
 import { UserEducationCardProps } from "~/modules/user/interfaces/user.interface";
+import { getYearRange } from "~/modules/user/utils/helper";
 
 export default function EducationCard({
+  institution_name,
+  degree,
+  field_of_study,
+  achievements,
+  start_date,
+  end_date,
   isFirstElement,
   isLastElement,
 }: UserEducationCardProps) {
@@ -60,10 +67,10 @@ export default function EducationCard({
       <Box flexDirection="column" paddingBottom={5}>
         <Box flexDirection="column">
           <Typography variant="h1" color="secondary.purple">
-            BSc.Management of Information Systems
+            {degree} of {field_of_study}
           </Typography>
           <Typography variant="h3" paddingTop={0.5}>
-            Bogazici University · 2015 - 2018
+           {institution_name} · {getYearRange(start_date, end_date)}
           </Typography>
         </Box>
       </Box>
