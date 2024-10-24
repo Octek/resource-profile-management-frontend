@@ -1,4 +1,4 @@
-// cSpell:ignore unist eqeqeq linebreak iife builtins freelist camelcase multilines setstate
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const logicalOperators = ["OR", "AND", "NOT"];
 const excludedVariables = ["__typename", "_all", "_count"];
 module.exports = {
