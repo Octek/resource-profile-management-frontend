@@ -77,9 +77,10 @@ export const responseMessageHandler = (
     if (url.includes(AUTH_ENDPOINTS.login)) finalMessage = unAuthorized;
     else if (url.includes(AUTH_ENDPOINTS.validateResetPassword))
       finalMessage = expiredResetLink;
-    else if (url.includes(AUTH_ENDPOINTS.validateSetPassword))
+    else if (url.includes(AUTH_ENDPOINTS.validateSetPassword)) {
       finalMessage = expiredSetPasswordLink;
-    else finalMessage = unAuthorized;
+      sendMessage = true;
+    } else finalMessage = unAuthorized;
   }
   if (sendMessage) {
     store.dispatch(setResponseMessage({ message: finalMessage, messageType }));

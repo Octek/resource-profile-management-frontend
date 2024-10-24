@@ -4,6 +4,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  images: {
+    // eslint-disable-next-line prettier/prettier
+    domains: ['i.ibb.co'], // Allow images from i.ibb.co
+  },
 };
 
 module.exports = nextConfig;
