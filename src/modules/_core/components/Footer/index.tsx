@@ -1,30 +1,24 @@
 /* eslint-disable func-style */
 /* eslint-disable react/no-multi-comp */
 import { Fragment } from "react";
-import FacebookIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import InputLabel from "@mui/material/InputLabel";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 
-import SitemarkIcon from "~/modules/_core/components/SitemarkIcon";
+import facebook from "~/public/assets/facebook.png";
+import logo from "~/public/assets/octeklogo.png";
+import linkedIn from "~/public/assets/social.png";
+import twitter from "~/public/assets/twitter.png";
+import youtube from "~/public/assets/youtube.png";
 
 function Copyright() {
   return (
-    <Typography variant="body2" sx={{ color: "text.secondary", marginTop: 1 }}>
-      {"Copyright © "}
-      <Link color="text.secondary" href="https://mui.com/">
-        Sitemark
-      </Link>
-      &nbsp;
-      {new Date().getFullYear()}
+    <Typography variant="body2" sx={{ color: "text.secondary", marginY: 1 }}>
+      © 2022 Octek. All rights reserved.
     </Typography>
   );
 }
@@ -33,192 +27,274 @@ export default function Footer() {
   return (
     <Fragment>
       <Divider />
-      <Container
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: { xs: 4, sm: 8 },
-          paddingY: { xs: 8, sm: 10 },
-          textAlign: { sm: "center", md: "left" },
-        }}
-      >
-        <Box
+      <Box sx={{ backgroundColor: "black" }}>
+        <Container
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            width: "100%",
-            justifyContent: "space-between",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: { xs: 4, sm: 8 },
+            paddingY: { xs: 8, sm: 10 },
+            textAlign: { sm: "center", md: "left" },
           }}
         >
           <Box
             sx={{
               display: "flex",
-              flexDirection: "column",
-              gap: 4,
-              minWidth: { xs: "100%", sm: "60%" },
+              flexDirection: { xs: "column", sm: "row" },
+              width: "100%",
+              justifyContent: "space-between",
             }}
           >
-            <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-              <SitemarkIcon />
-              <Typography
-                variant="body2"
-                gutterBottom
-                sx={{ fontWeight: 600, marginTop: 2 }}
-              >
-                Join the newsletter
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ color: "text.secondary", marginBottom: 2 }}
-              >
-                Subscribe for weekly updates. No spams ever!
-              </Typography>
-              <InputLabel htmlFor="email-newsletter">Email</InputLabel>
-              <Stack direction="row" spacing={1} useFlexGap>
-                <TextField
-                  id="email-newsletter"
-                  hiddenLabel
-                  size="small"
-                  variant="outlined"
-                  fullWidth
-                  aria-label="Enter your email address"
-                  placeholder="Your email address"
-                  // slotProps={{
-                  //   htmlInput: {
-                  //     autoComplete: "off",
-                  //     "aria-label": "Enter your email address",
-                  //   },
-                  // }}
-                  sx={{ width: "250px" }}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 4,
+                minWidth: { xs: "100%", sm: "40%" },
+              }}
+            >
+              <Box sx={{ width: { xs: "100%", sm: "40%" } }}>
+                <Image
+                  src={logo}
+                  alt=""
+                  style={{ height: "49px", width: "152px" }}
                 />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  sx={{ flexShrink: 0 }}
+                <Typography
+                  variant="body2"
+                  gutterBottom
+                  sx={{
+                    color: "primary.greenText",
+                  }}
                 >
-                  Subscribe
-                </Button>
-              </Stack>
+                  Innovate . Integrate . Elevate
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "white", marginBottom: 2 }}
+                >
+                  Octek is an award-winning digital development company, helping
+                  businesses with product design, development, and technology
+                  acceleration.
+                </Typography>
+                <Stack direction="row" spacing={2} useFlexGap>
+                  <Image
+                    src={facebook}
+                    alt=""
+                    style={{ height: "40px", width: "40px" }}
+                  />
+                  <Image
+                    src={twitter}
+                    alt=""
+                    style={{ height: "40px", width: "40px" }}
+                  />
+                  <Image
+                    src={linkedIn}
+                    alt=""
+                    style={{ height: "40px", width: "40px" }}
+                  />
+                  <Image
+                    src={youtube}
+                    alt=""
+                    style={{ height: "40px", width: "40px" }}
+                  />
+                </Stack>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexDirection: "column",
+                minWidth: "15%",
+                gap: 1,
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{ fontWeight: "medium", color: "primary.greenText" }}
+              >
+                Useful Links
+              </Typography>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Home
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Services
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Careers
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Blogs
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                About Us
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Our Team
+              </Link>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexDirection: "column",
+                minWidth: "20%",
+                gap: 1,
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{ fontWeight: "medium", color: "primary.greenText" }}
+              >
+                Services
+              </Typography>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                IT Consulting
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Migration & Cloud Services
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Software Development
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Game Development
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                IT Support and Maintenance
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Resource Outsourcing
+              </Link>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                flexDirection: "column",
+                minWidth: "15%",
+                gap: 1,
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{ fontWeight: "medium", color: "primary.greenText" }}
+              >
+                Contact
+              </Typography>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                info@octek.co
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                +92 (42) 32085440
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "primary.greenText" }}
+              >
+                Others
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                color="text.secondary"
+                variant="body2"
+                href="#"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Support
+              </Link>
             </Box>
           </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-              Product
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Features
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Testimonials
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Highlights
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Pricing
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              FAQs
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-              Company
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              About us
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Careers
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Press
-            </Link>
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              flexDirection: "column",
-              gap: 1,
-            }}
-          >
-            <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-              Legal
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Terms
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Privacy
-            </Link>
-            <Link color="text.secondary" variant="body2" href="#">
-              Contact
-            </Link>
-          </Box>
-        </Box>
+        </Container>
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
-            paddingTop: { xs: 4, sm: 8 },
+            justifyContent: "center",
             width: "100%",
-            borderTop: "1px solid",
-            borderColor: "divider",
+            backgroundColor: "white",
           }}
         >
-          <div>
-            <Link color="text.secondary" variant="body2" href="#">
-              Privacy Policy
-            </Link>
-            <Typography sx={{ display: "inline", marginX: 0.5, opacity: 0.5 }}>
-              &nbsp;•&nbsp;
-            </Typography>
-            <Link color="text.secondary" variant="body2" href="#">
-              Terms of Service
-            </Link>
-            <Copyright />
-          </div>
-          <Stack
-            direction="row"
-            spacing={1}
-            useFlexGap
-            sx={{ justifyContent: "left", color: "text.secondary" }}
-          >
-            <IconButton
-              color="inherit"
-              size="small"
-              href="https://github.com/mui"
-              aria-label="GitHub"
-              sx={{ alignSelf: "center" }}
-            >
-              <FacebookIcon />
-            </IconButton>
-            <IconButton
-              color="inherit"
-              size="small"
-              href="https://www.linkedin.com/company/mui/"
-              aria-label="LinkedIn"
-              sx={{ alignSelf: "center" }}
-            >
-              <LinkedInIcon />
-            </IconButton>
-          </Stack>
+          <Copyright />
         </Box>
-      </Container>
+      </Box>
     </Fragment>
   );
 }
