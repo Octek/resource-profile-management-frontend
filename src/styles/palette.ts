@@ -4,6 +4,8 @@ export const defaultPalette = (theme: any) => {
       main: theme?.primary_color || "#13416F",
       greyBg: "#f9f9f9",
       greenText: "#2BB473",
+      headingText: "#2BB673",
+      generalText: "#262262",
     },
     secondary: {
       main: "#FFF",

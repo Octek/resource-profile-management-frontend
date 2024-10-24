@@ -4,8 +4,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 import { UserSkillDataProps } from "~/modules/user/interfaces/user.interface";
-
-import reactIcon from "~/public/assets/reactjs.webp";
+import { getSKillLogo } from "~/modules/user/utils/helper";
 
 export default function TechnologiesCard({ skill }: UserSkillDataProps) {
   return (
@@ -18,18 +17,25 @@ export default function TechnologiesCard({ skill }: UserSkillDataProps) {
       <Stack
         direction="row"
         justifyContent="space-between"
-        paddingX={1}
+        paddingX={1.5}
         alignItems="center"
       >
         <Image
-          src={reactIcon}
+          src={getSKillLogo(skill.name)}
           alt="No Uploaded Logo"
-          style={{
-            width: "40px",
-            height: "30px",
-          }}
+          width={35}
+          height={32}
         />
-        <Typography variant="h3" paddingY={2}>
+        <Typography
+          paddingY={1.2}
+          sx={{
+            fontFamily: "sans-serif",
+            fontSize: "14px",
+            fontWeight: 500,
+            lineHeight: "24px",
+            color: "black",
+          }}
+        >
           {skill.name}
         </Typography>
       </Stack>

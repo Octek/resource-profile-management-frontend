@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
@@ -10,7 +11,6 @@ export default function EducationCard({
   institution_name,
   degree,
   field_of_study,
-  achievements,
   start_date,
   end_date,
   isFirstElement,
@@ -35,7 +35,7 @@ export default function EducationCard({
               orientation="vertical"
               sx={{
                 height: 8,
-                backgroundColor: "secondary.purple",
+                backgroundColor: "primary.greenText",
               }}
             />
           )}
@@ -47,7 +47,7 @@ export default function EducationCard({
               sx={{
                 marginTop: 1,
                 overflow: "hidden",
-                backgroundColor: "secondary.purple",
+                backgroundColor: "primary.greenText",
               }}
             />
           )}
@@ -60,17 +60,34 @@ export default function EducationCard({
             height: "10px",
             marginTop: 0.8,
             borderRadius: "50%",
-            backgroundColor: "secondary.purple",
+            backgroundColor: "primary.greenText",
           }}
         />
       </Box>
       <Box flexDirection="column" paddingBottom={5}>
         <Box flexDirection="column">
-          <Typography variant="h1" color="secondary.purple">
+          <Typography
+            variant="h1"
+            sx={{
+              fontFamily: "sans-serif",
+              fontSize: "16px",
+              fontWeight: 500,
+              lineHeight: "24px",
+              color: "primary.greenText",
+            }}
+          >
             {degree} of {field_of_study}
           </Typography>
-          <Typography variant="h3" paddingTop={0.5}>
-           {institution_name} · {getYearRange(start_date, end_date)}
+          <Typography
+            variant="h3"
+            paddingTop={0.5}
+            sx={{
+              fontFamily: "sans-serif",
+              fontSize: "16px",
+              fontWeight: 300,
+            }}
+          >
+            {institution_name} · {getYearRange(start_date, end_date)}
           </Typography>
         </Box>
       </Box>

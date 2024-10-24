@@ -5,4 +5,5 @@ export const labels = {
   employment: "Employment",
   technologies: "Technologies :",
   education: "Education",
+  location: "Turkey",
 };

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 export interface UserExperienceCardProps {
   position: string;
   company: string;
@@ -7,17 +8,17 @@ export interface UserExperienceCardProps {
   is_currently_working: boolean;
   isFirstElement: boolean;
   isLastElement: boolean;
-  skills:Skill[];
+  skills: Skill[];
   responsibilities: string[];
 }
 
 export interface UserEducationCardProps {
-  institution_name: string,
-  degree: string,
-  field_of_study: string,
-  achievements: string,
-  start_date: string,
-  end_date: string,
+  institution_name: string;
+  degree: string;
+  field_of_study: string;
+  achievements: string;
+  start_date: string;
+  end_date: string;
   isFirstElement: boolean;
   isLastElement: boolean;
 }
