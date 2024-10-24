@@ -9,7 +9,7 @@ import { labels } from "~/core/utils/labels";
 const FirstPage: NextApplicationPage = () => {
   return (
     <Fragment>
-      <AppHead title={labels.firstPageTitle} />
+      <AppHead title={labels.userPageTitle} />
       <User />
     </Fragment>
   );
