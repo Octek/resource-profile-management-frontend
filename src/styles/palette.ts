@@ -3,6 +3,7 @@ export const defaultPalette = (theme: any) => {
     primary: {
       main: theme?.primary_color || "#13416F",
       greyBg: "#f9f9f9",
+      greenText: "#2BB473",
     },
     secondary: {
       main: "#FFF",
