@@ -18,11 +18,7 @@ import {
 } from "~/core/state/coreSlice";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_HUB_PORTAL_URL,
-});
-
-export const swaggerAxioInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_HUB_PORTAL_INTEGRATION_URL,
+  baseURL: process.env.NEXT_PUBLIC_PROFILE_URL,
 });
 
 const tokenlessUrls = [

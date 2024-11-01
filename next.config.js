@@ -6,7 +6,7 @@ const nextConfig = {
   },
   images: {
     // eslint-disable-next-line prettier/prettier
-    domains: ['i.ibb.co'], // Allow images from i.ibb.co
+    domains: ['skoop-signage-storage-v2-dev.s3.amazonaws.com'], // Allow images
   },
 };
 

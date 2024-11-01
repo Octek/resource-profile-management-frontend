@@ -9,7 +9,7 @@ import Image from "next/image";
 import { UserAvatarProps } from "~/modules/user/interfaces/user.interface";
 import { labels } from "~/modules/user/utils/labels";
 
-export default function UserAvatar({ name, avatar }: UserAvatarProps) {
+export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
   const handleClick = () => {
     console.info("You clicked the Chip.");
   };
@@ -86,7 +86,7 @@ export default function UserAvatar({ name, avatar }: UserAvatarProps) {
               lineHeight: "24px",
             }}
           >
-            {labels.location}
+            {location}
           </Typography>
         </Stack>
         <Chip

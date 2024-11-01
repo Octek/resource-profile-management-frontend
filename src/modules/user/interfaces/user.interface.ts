@@ -134,10 +134,11 @@ export interface UserData {
 }
 export interface UserInfoProps {
   name: string;
-  job_title: string;
+  jobTitle: string;
   bio: string;
 }
 export interface UserAvatarProps {
   name: string;
   avatar: string;
+  location: string;
 }

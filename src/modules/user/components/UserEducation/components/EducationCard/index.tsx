@@ -76,7 +76,7 @@ export default function EducationCard({
               color: "primary.greenText",
             }}
           >
-            {degree} of {field_of_study}
+            {degree} - {field_of_study}
           </Typography>
           <Typography
             variant="h3"

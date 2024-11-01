@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import { UserInfoProps } from "~/modules/user/interfaces/user.interface";
 
-export default function UserInfo({ name, job_title, bio }: UserInfoProps) {
+export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
   return (
     <Box flexDirection="column" padding={2}>
       <Box flexDirection="column">
@@ -28,7 +28,7 @@ export default function UserInfo({ name, job_title, bio }: UserInfoProps) {
             color: "primary.generalText",
           }}
         >
-          {job_title}
+          {jobTitle}
         </Typography>
       </Box>
       <Typography

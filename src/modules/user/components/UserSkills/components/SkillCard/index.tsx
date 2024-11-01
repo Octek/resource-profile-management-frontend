@@ -17,7 +17,7 @@ export default function SkillCard({ skill }: UserSkillDataProps) {
     >
       <Stack direction="row" paddingX={2} alignItems="center">
         <Image
-          src={getSKillLogo(skill.name)}
+          src={skill.icon}
           alt="No Uploaded Logo"
           width={35}
           height={32}
