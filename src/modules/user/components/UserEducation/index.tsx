@@ -13,8 +13,15 @@ interface UserEducationsProps {
 export default function UserEducation({ educations }: UserEducationsProps) {
   return (
     <Fragment>
-      <Grid container direction="row" xs={12} spacing={3}>
-        <Grid item xs={4}>
+      <Grid
+        container
+        direction="row"
+        xs={12}
+        wrap="nowrap"
+        spacing={3}
+        sx={{ overflowX: "auto" }}
+      >
+        <Grid item xs={4} minWidth="230px">
           <Typography
             variant="h1"
             sx={{
@@ -29,7 +36,7 @@ export default function UserEducation({ educations }: UserEducationsProps) {
           </Typography>
         </Grid>
         <Grid item xs={8}>
-          <Box>
+          <Box paddingTop={1}>
             {educations &&
               educations.map((education, index) => (
                 <EducationCard

@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
 import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
@@ -44,31 +45,71 @@ export default function AppToolBar() {
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: 10 }}>
             <Button
               variant="text"
-              sx={{ color: "black", paddingRight: 4, textTransform: "none" }}
+              href="https://octek.co/"
+              sx={{
+                color: "black",
+                paddingRight: 4,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
             >
               Home
             </Button>
             <Button
               variant="text"
-              sx={{ color: "black", paddingRight: 4, textTransform: "none" }}
+              href="https://octek.co/services/"
+              sx={{
+                color: "black",
+                paddingRight: 4,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
             >
               Services
             </Button>
             <Button
               variant="text"
-              sx={{ color: "black", paddingRight: 4, textTransform: "none" }}
+              href="https://octek.co/job/"
+              sx={{
+                color: "black",
+                paddingRight: 4,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
             >
               Career
             </Button>
             <Button
               variant="text"
-              sx={{ color: "black", paddingRight: 4, textTransform: "none" }}
+              href="https://octek.co/about-us/"
+              sx={{
+                color: "black",
+                paddingRight: 4,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
             >
               About us
             </Button>
             <Button
               variant="text"
-              sx={{ color: "black", paddingRight: 5, textTransform: "none" }}
+              href="https://octek.co/contact/"
+              sx={{
+                color: "black",
+                paddingRight: 5,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
             >
               Contact us
             </Button>
@@ -92,11 +133,21 @@ export default function AppToolBar() {
                 </IconButton>
               </Box>
               <Divider sx={{ my: 3 }} />
-              <MenuItem>Home</MenuItem>
-              <MenuItem>Services</MenuItem>
-              <MenuItem>Career</MenuItem>
-              <MenuItem>About us</MenuItem>
-              <MenuItem>Contact us</MenuItem>
+              <MenuItem component={Link} href="https://octek.co/">
+                Home
+              </MenuItem>
+              <MenuItem component={Link} href="https://octek.co/services/">
+                Services
+              </MenuItem>
+              <MenuItem component={Link} href="https://octek.co/job/">
+                Career
+              </MenuItem>
+              <MenuItem component={Link} href="https://octek.co/about-us/">
+                About us
+              </MenuItem>
+              <MenuItem component={Link} href="https://octek.co/contact/">
+                Contact us
+              </MenuItem>
             </Box>
           </Drawer>
         </Box>

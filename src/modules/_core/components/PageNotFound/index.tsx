@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Button, Typography } from "@mui/material";
+
 import { labels } from "~/core/utils/labels";
 
-export default function NotFoundPage(){
+export default function NotFoundPage() {
   return (
     <Box
       display="flex"
@@ -12,8 +12,7 @@ export default function NotFoundPage(){
       height="100vh"
       textAlign="center"
     >
-      {/* SVG for 404 */}
-      <Box mb={3}>
+      <Box marginBottom={3}>
         <svg
           width="200"
           height="100"
@@ -21,13 +20,7 @@ export default function NotFoundPage(){
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <text
-            x="10"
-            y="70"
-            fontSize="80"
-            fontWeight="bold"
-            fill="#FF6B6B"
-          >
+          <text x="10" y="70" fontSize="80" fontWeight="bold" fill="#FF6B6B">
             {labels.text404}
           </text>
         </svg>
@@ -37,17 +30,17 @@ export default function NotFoundPage(){
         {labels.pageNotFound}
       </Typography>
 
-      <Typography variant="body1" color="textSecondary" mb={2}>
+      <Typography variant="body1" color="textSecondary" marginBottom={2}>
         {labels.pageNotExist}
       </Typography>
 
       <Button
         variant="contained"
         color="secondary"
-        onClick={() => (window.location.href = '/')}
+        onClick={() => (window.location.href = "/")}
       >
         {labels.goToHomepage}
       </Button>
     </Box>
   );
-};
+}

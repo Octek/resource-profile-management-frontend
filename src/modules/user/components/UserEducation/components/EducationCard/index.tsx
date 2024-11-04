@@ -17,7 +17,7 @@ export default function EducationCard({
   isLastElement,
 }: UserEducationCardProps) {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={3}>
       <Box
         position="relative"
         sx={{
@@ -35,19 +35,33 @@ export default function EducationCard({
               orientation="vertical"
               sx={{
                 height: 8,
+                borderRightWidth: 2,
                 backgroundColor: "primary.greenText",
               }}
             />
           )}
 
-          {isLastElement && (
+          {isLastElement ? (
             <Divider
               orientation="vertical"
               variant="fullWidth"
               sx={{
                 marginTop: 1,
                 overflow: "hidden",
+                borderRightWidth: 2,
                 backgroundColor: "primary.greenText",
+              }}
+            />
+          ) : (
+            <Divider
+              orientation="vertical"
+              variant="fullWidth"
+              sx={{
+                marginTop: 1,
+                overflow: "hidden",
+                borderRightWidth: 2,
+                borderStyle: "dashed",
+                borderColor: "primary.greenText",
               }}
             />
           )}
@@ -56,8 +70,8 @@ export default function EducationCard({
         <Box
           sx={{
             position: "absolute",
-            width: "10px",
-            height: "10px",
+            width: "18px",
+            height: "18px",
             marginTop: 0.8,
             borderRadius: "50%",
             backgroundColor: "primary.greenText",

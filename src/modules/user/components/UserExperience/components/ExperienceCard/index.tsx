@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable @typescript-eslint/naming-convention */
-/* eslint-disable @typescript-eslint/no-duplicate-imports */
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { Grid } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -30,7 +29,7 @@ export default function ExperienceCard({
   responsibilities,
 }: UserExperienceCardProps) {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={3}>
       <Box
         position="relative"
         sx={{
@@ -48,19 +47,33 @@ export default function ExperienceCard({
               orientation="vertical"
               sx={{
                 height: 8,
+                borderRightWidth: 2,
                 backgroundColor: "primary.greenText",
               }}
             />
           )}
 
-          {isLastElement && (
+          {isLastElement ? (
             <Divider
               orientation="vertical"
               variant="fullWidth"
               sx={{
                 marginTop: 1,
                 overflow: "hidden",
+                borderRightWidth: 2,
                 backgroundColor: "primary.greenText",
+              }}
+            />
+          ) : (
+            <Divider
+              orientation="vertical"
+              variant="fullWidth"
+              sx={{
+                marginTop: 1,
+                overflow: "hidden",
+                borderRightWidth: 2,
+                borderStyle: "dashed",
+                borderColor: "primary.greenText",
               }}
             />
           )}
@@ -69,8 +82,8 @@ export default function ExperienceCard({
         <Box
           sx={{
             position: "absolute",
-            width: "10px",
-            height: "10px",
+            width: "18px",
+            height: "18px",
             marginTop: 0.8,
             borderRadius: "50%",
             backgroundColor: "primary.greenText",
@@ -149,28 +162,37 @@ export default function ExperienceCard({
               </ListItem>
             ))}
         </List>
-        <Grid direction="row" container xs={12} paddingTop={2} rowGap={2}>
-          <Grid item xs={4}>
-            <Typography
-              variant="h1"
-              sx={{
-                fontFamily: "sans-serif",
-                fontSize: "16px",
-                fontWeight: 500,
-                lineHeight: "24px",
-                color: "black",
-              }}
+
+        {skills && (
+          <Grid direction="row" container xs={12} paddingTop={2} rowGap={2}>
+            <Grid item xs={4}>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontFamily: "sans-serif",
+                  fontSize: "16px",
+                  fontWeight: 500,
+                  lineHeight: "24px",
+                  color: "black",
+                }}
+              >
+                {labels.technologies}
+              </Typography>
+            </Grid>
+            <Grid
+              container
+              item
+              xs={8}
+              direction="row"
+              rowGap={1}
+              columnGap={1}
             >
-              {labels.technologies}
-            </Typography>
-          </Grid>
-          <Grid container item xs={8} direction="row" rowGap={1} columnGap={1}>
-            {skills &&
-              skills.map((skill, index) => (
+              {skills.map((skill, index) => (
                 <TechnologiesCard key={index} skill={skill} />
               ))}
+            </Grid>
           </Grid>
-        </Grid>
+        )}
       </Box>
     </Stack>
   );

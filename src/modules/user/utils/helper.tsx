@@ -325,7 +325,7 @@ export const userJsonResponse = {
         updated_at: "2024-10-21T13:11:49.678828+05:00",
       },
       {
-        id: 13,
+        id: 14,
         position: "QA Engineer",
         company: "Tech Innovations Inc.",
         description: "Developed and maintained web applications.",
@@ -358,7 +358,79 @@ export const userJsonResponse = {
         updated_at: "2024-10-21T13:11:49.678828+05:00",
       },
       {
-        id: 13,
+        id: 15,
+        position: "QA Engineer",
+        company: "Tech Innovations Inc.",
+        description: "Developed and maintained web applications.",
+        start_date: "2023-01-15T05:00:00+05:00",
+        end_date: "2023-06-30T05:00:00+05:00",
+        is_currently_working: false,
+        responsibilities: ["Coding", "Testing", "Debugging", "Documentation"],
+        skills: [
+          {
+            id: 7,
+            name: "JavaScript",
+            icon: "icon_programming.png",
+            bookings: null,
+            deleted_at: null,
+            created_at: "2024-10-17T19:39:52.346233+05:00",
+            updated_at: "2024-10-17T19:39:52.346233+05:00",
+          },
+        ],
+        deleted_at: null,
+        created_at: "2024-10-21T13:11:49.678828+05:00",
+        updated_at: "2024-10-21T13:11:49.678828+05:00",
+      },
+      {
+        id: 16,
+        position: "QA Engineer",
+        company: "Tech Innovations Inc.",
+        description: "Developed and maintained web applications.",
+        start_date: "2023-01-15T05:00:00+05:00",
+        end_date: "2023-06-30T05:00:00+05:00",
+        is_currently_working: false,
+        responsibilities: ["Coding", "Testing", "Debugging", "Documentation"],
+        skills: [
+          {
+            id: 7,
+            name: "JavaScript",
+            icon: "icon_programming.png",
+            bookings: null,
+            deleted_at: null,
+            created_at: "2024-10-17T19:39:52.346233+05:00",
+            updated_at: "2024-10-17T19:39:52.346233+05:00",
+          },
+        ],
+        deleted_at: null,
+        created_at: "2024-10-21T13:11:49.678828+05:00",
+        updated_at: "2024-10-21T13:11:49.678828+05:00",
+      },
+      {
+        id: 17,
+        position: "QA Engineer",
+        company: "Tech Innovations Inc.",
+        description: "Developed and maintained web applications.",
+        start_date: "2023-01-15T05:00:00+05:00",
+        end_date: "2023-06-30T05:00:00+05:00",
+        is_currently_working: false,
+        responsibilities: ["Coding", "Testing", "Debugging", "Documentation"],
+        skills: [
+          {
+            id: 7,
+            name: "JavaScript",
+            icon: "icon_programming.png",
+            bookings: null,
+            deleted_at: null,
+            created_at: "2024-10-17T19:39:52.346233+05:00",
+            updated_at: "2024-10-17T19:39:52.346233+05:00",
+          },
+        ],
+        deleted_at: null,
+        created_at: "2024-10-21T13:11:49.678828+05:00",
+        updated_at: "2024-10-21T13:11:49.678828+05:00",
+      },
+      {
+        id: 18,
         position: "QA Engineer",
         company: "Tech Innovations Inc.",
         description: "Developed and maintained web applications.",
@@ -467,3 +539,5 @@ export const groupSkillsByCategory = (skills: Skill[]) => {
     return acc;
   }, {});
 };
+export const isValidNumber = (input: any): boolean =>
+  typeof input === "number" && !isNaN(input);

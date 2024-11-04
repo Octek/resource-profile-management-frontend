@@ -78,26 +78,34 @@ export default function Footer() {
                   acceleration.
                 </Typography>
                 <Stack direction="row" spacing={2} useFlexGap>
-                  <Image
-                    src={facebook}
-                    alt=""
-                    style={{ height: "40px", width: "40px" }}
-                  />
-                  <Image
-                    src={twitter}
-                    alt=""
-                    style={{ height: "40px", width: "40px" }}
-                  />
-                  <Image
-                    src={linkedIn}
-                    alt=""
-                    style={{ height: "40px", width: "40px" }}
-                  />
-                  <Image
-                    src={youtube}
-                    alt=""
-                    style={{ height: "40px", width: "40px" }}
-                  />
+                  <Link href="https://www.facebook.com/octek">
+                    <Image
+                      src={facebook}
+                      alt=""
+                      style={{ height: "40px", width: "40px" }}
+                    />
+                  </Link>
+                  <Link href="">
+                    <Image
+                      src={twitter}
+                      alt=""
+                      style={{ height: "40px", width: "40px" }}
+                    />
+                  </Link>
+                  <Link href="https://www.linkedin.com/company/octek-co/">
+                    <Image
+                      src={linkedIn}
+                      alt=""
+                      style={{ height: "40px", width: "40px" }}
+                    />
+                  </Link>
+                  <Link href="https://www.youtube.com/@octekpvtltd7270">
+                    <Image
+                      src={youtube}
+                      alt=""
+                      style={{ height: "40px", width: "40px" }}
+                    />
+                  </Link>
                 </Stack>
               </Box>
             </Box>
@@ -118,7 +126,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Home
@@ -126,7 +134,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/services/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Services
@@ -134,7 +142,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/job/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Careers
@@ -150,7 +158,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/about-us/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 About Us
@@ -181,7 +189,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/it-consulting-services/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 IT Consulting
@@ -189,7 +197,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/migration-cloud-services/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Migration & Cloud Services
@@ -197,7 +205,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/software-development/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Software Development
@@ -205,7 +213,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/game-development/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Game Development
@@ -213,7 +221,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/it-support-and-maintenance/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 IT Support and Maintenance
@@ -221,7 +229,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/resource-outsourcing/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Resource Outsourcing
@@ -268,7 +276,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/privacy-policy/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Privacy Policy
@@ -276,7 +284,7 @@ export default function Footer() {
               <Link
                 color="text.secondary"
                 variant="body2"
-                href="#"
+                href="https://octek.co/contact/"
                 sx={{ color: "white", textDecoration: "none" }}
               >
                 Support
