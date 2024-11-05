@@ -6,7 +6,7 @@ const nextConfig = {
   },
   images: {
     // eslint-disable-next-line prettier/prettier
-    domains: ['skoop-signage-storage-v2-dev.s3.amazonaws.com'], // Allow images
+    domains: ['skoop-signage-storage-v2-dev.s3.amazonaws.com','https://s3-alpha-sig.figma.com'], // Allow images
   },
 };
 

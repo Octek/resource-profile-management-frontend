@@ -14,6 +14,7 @@ import logo from "~/public/assets/octeklogo.png";
 import linkedIn from "~/public/assets/social.png";
 import twitter from "~/public/assets/twitter.png";
 import youtube from "~/public/assets/youtube.png";
+import ContactUs from "~/core/components/ContactUs";
 
 function Copyright() {
   return (
@@ -27,6 +28,7 @@ export default function Footer() {
   return (
     <Fragment>
       <Divider />
+      <ContactUs />
       <Box sx={{ backgroundColor: "black" }}>
         <Container
           sx={{
