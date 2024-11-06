@@ -82,9 +82,10 @@ export default function User() {
                   <CssBaseline enableColorScheme />
                   <AppToolBar />
                   <Container
-                    maxWidth="lg"
+                    maxWidth={false}
                     component="main"
                     sx={{
+                      width: "70%",
                       display: "flex",
                       flexDirection: "column",
                       my: 16,
@@ -98,6 +99,7 @@ export default function User() {
                       display="flex"
                       justifyContent="center"
                       columnSpacing={4}
+                      paddingTop={10}
                     >
                       <Grid item container xs={12} md={8}>
                         <Grid item>
@@ -136,13 +138,12 @@ export default function User() {
                     )}
                   </Container>
 
-                  <Box
-                    sx={{ width: "100%", backgroundColor: "primary.greyBg" }}
-                  >
+                  <Box width="100%">
                     <Container
-                      maxWidth="lg"
+                      maxWidth={false}
                       component="main"
                       sx={{
+                        width: "70%",
                         display: "flex",
                         flexDirection: "column",
                         marginTop: 16,
@@ -157,10 +158,10 @@ export default function User() {
                         display="flex"
                         justifyContent="center"
                       >
-                        <Grid item container xs={12} md={8}>
+                        <Grid item container xs={12} lg={10}>
                           <UserExperience experiences={userData.experiences} />
                         </Grid>
-                        <Grid item xs={12} md={4} />
+                        <Grid item xs={12} lg={2} />
                       </Grid>
                       <Grid
                         container
@@ -169,10 +170,10 @@ export default function User() {
                         display="flex"
                         justifyContent="center"
                       >
-                        <Grid item container xs={12} md={8}>
+                        <Grid item container xs={12} lg={10}>
                           <UserEducation educations={userData.educations} />
                         </Grid>
-                        <Grid item xs={12} md={4} />
+                        <Grid item xs={12} lg={2} />
                       </Grid>
                     </Container>
                   </Box>

@@ -1,5 +1,5 @@
 export const typography = {
-  fontFamily: "SegoeUI",
+  fontFamily: "Roboto",
   fontStyle: "normal",
   lineHeight: "normal",
 

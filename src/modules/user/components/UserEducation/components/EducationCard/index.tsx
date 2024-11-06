@@ -83,10 +83,10 @@ export default function EducationCard({
           <Typography
             variant="h1"
             sx={{
-              fontFamily: "sans-serif",
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: "24px",
+              fontFamily: "Roboto",
+              fontSize: "30px",
+              fontWeight: 400,
+              lineHeight: "30px",
               color: "primary.greenText",
             }}
           >
@@ -96,9 +96,11 @@ export default function EducationCard({
             variant="h3"
             paddingTop={0.5}
             sx={{
-              fontFamily: "sans-serif",
-              fontSize: "16px",
+              fontFamily: "Roboto",
+              fontSize: "22px",
+              lineHeight: "22px",
               fontWeight: 300,
+              color: "primary.darkBlueText",
             }}
           >
             {institution_name} · {getYearRange(start_date, end_date)}

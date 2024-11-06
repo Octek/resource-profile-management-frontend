@@ -10,10 +10,10 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
       <Box flexDirection="column">
         <Typography
           sx={{
-            fontFamily: "sans-serif",
-            fontSize: "48px",
-            fontWeight: 600,
-            lineHeight: "56px",
+            fontFamily: "Roboto",
+            fontSize: "60px",
+            fontWeight: 700,
+            lineHeight: "60px",
             color: "primary.headingText",
           }}
         >
@@ -21,11 +21,11 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
         </Typography>
         <Typography
           sx={{
-            fontFamily: "sans-serif",
-            fontSize: "32px",
-            fontWeight: 500,
-            lineHeight: "40px",
-            color: "primary.generalText",
+            fontFamily: "Roboto",
+            fontSize: "40px",
+            fontWeight: 400,
+            lineHeight: "60px",
+            color: "primary.darkBlueText",
           }}
         >
           {jobTitle}
@@ -35,10 +35,10 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
         paddingTop={4}
         sx={{
           whiteSpace: "pre-line",
-          fontFamily: "sans-serif",
-          fontSize: "16px",
-          fontWeight: 300,
-          color: "primary.generalText",
+          fontFamily: "Roboto",
+          fontSize: "20px",
+          fontWeight: 400,
+          color: "primary.darkBlueText",
         }}
       >
         {bio}

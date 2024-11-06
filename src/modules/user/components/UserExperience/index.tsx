@@ -16,39 +16,32 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
       <Box sx={{ width: "100%" }} flexDirection="column">
         <Typography
           sx={{
-            fontFamily: "sans-serif",
-            fontSize: "40px",
+            fontFamily: "Roboto",
+            fontSize: "60px",
             fontWeight: 700,
-            lineHeight: 1.3,
-            color: "black",
+            lineHeight: "60px",
+            color: "primary.headingText",
             paddingY: 8,
           }}
         >
           {labels.selectedExperience}
         </Typography>
 
-        <Grid
-          container
-          direction="row"
-          xs={12}
-          wrap="nowrap"
-          spacing={3}
-          sx={{ overflowX: "auto" }}
-        >
-          <Grid item xs={4} minWidth="230px">
+        <Grid container direction="row" xs={12} spacing={3}>
+          <Grid item xs={4}>
             <Typography
               sx={{
-                fontFamily: "sans-serif",
-                fontSize: "32px",
-                fontWeight: 700,
-                lineHeight: 1.3,
-                color: "black",
+                fontFamily: "Roboto",
+                fontSize: "40px",
+                fontWeight: 400,
+                lineHeight: "40px",
+                color: "primary.darkBlueText",
               }}
             >
               {labels.employment}
             </Typography>
           </Grid>
-          <Grid item xs={8}>
+          <Grid item xl={8} lg={12}>
             <Box paddingTop={1}>
               {experiences.map((experience, index) => (
                 <ExperienceCard

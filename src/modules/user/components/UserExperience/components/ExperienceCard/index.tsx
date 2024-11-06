@@ -94,10 +94,10 @@ export default function ExperienceCard({
         <Box flexDirection="column">
           <Typography
             sx={{
-              fontFamily: "sans-serif",
-              fontSize: "16px",
-              fontWeight: 500,
-              lineHeight: "24px",
+              fontFamily: "Roboto",
+              fontSize: "30px",
+              fontWeight: 400,
+              lineHeight: "30px",
               color: "primary.greenText",
             }}
           >
@@ -105,11 +105,13 @@ export default function ExperienceCard({
           </Typography>
           <Typography
             variant="h3"
-            paddingTop={0.5}
+            paddingTop={2}
             sx={{
-              fontFamily: "sans-serif",
-              fontSize: "16px",
+              fontFamily: "Roboto",
+              fontSize: "22px",
+              lineHeight: "22px",
               fontWeight: 300,
+              color: "primary.darkBlueText",
             }}
           >
             {company} -{" "}
@@ -117,11 +119,13 @@ export default function ExperienceCard({
           </Typography>
         </Box>
         <Typography
-          paddingTop={2}
+          paddingTop={4}
           sx={{
-            fontFamily: "sans-serif",
-            fontSize: "16px",
+            fontFamily: "Roboto",
+            fontSize: "22px",
+            lineHeight: "22px",
             fontWeight: 300,
+            color: "primary.darkBlueText",
           }}
         >
           {description}
@@ -150,9 +154,11 @@ export default function ExperienceCard({
                       component="div"
                       paddingTop={0.2}
                       sx={{
-                        fontFamily: "sans-serif",
-                        fontSize: "16px",
-                        fontWeight: 300,
+                        fontFamily: "Roboto",
+                        fontSize: "20px",
+                        lineHeight: "22px",
+                        fontWeight: 500,
+                        color: "primary.darkBlueText",
                       }}
                     >
                       {value}
@@ -169,11 +175,11 @@ export default function ExperienceCard({
               <Typography
                 variant="h1"
                 sx={{
-                  fontFamily: "sans-serif",
-                  fontSize: "16px",
-                  fontWeight: 500,
-                  lineHeight: "24px",
-                  color: "black",
+                  fontFamily: "Roboto",
+                  fontSize: "20px",
+                  fontWeight: 400,
+                  lineHeight: "22px",
+                  color: "primary.darkBlueText",
                 }}
               >
                 {labels.technologies}

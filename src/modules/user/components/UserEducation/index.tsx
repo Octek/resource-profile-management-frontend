@@ -13,47 +13,42 @@ interface UserEducationsProps {
 export default function UserEducation({ educations }: UserEducationsProps) {
   return (
     <Fragment>
-      <Grid
-        container
-        direction="row"
-        xs={12}
-        wrap="nowrap"
-        spacing={3}
-        sx={{ overflowX: "auto" }}
-      >
-        <Grid item xs={4} minWidth="230px">
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: "sans-serif",
-              fontSize: "32px",
-              fontWeight: 700,
-              lineHeight: 1.3,
-              color: "black",
-            }}
-          >
-            {labels.education}
-          </Typography>
+      <Box sx={{ width: "100%" }} flexDirection="column">
+        <Grid container direction="row" xs={12} spacing={3}>
+          <Grid item xs={4}>
+            <Typography
+              variant="h1"
+              sx={{
+                fontFamily: "Roboto",
+                fontSize: "40px",
+                fontWeight: 400,
+                lineHeight: "40px",
+                color: "primary.darkBlueText",
+              }}
+            >
+              {labels.education}
+            </Typography>
+          </Grid>
+          <Grid item xl={8} lg={12}>
+            <Box paddingTop={1}>
+              {educations &&
+                educations.map((education, index) => (
+                  <EducationCard
+                    key={education.id} // Use unique id for key
+                    institution_name={education.institution_name}
+                    degree={education.degree}
+                    field_of_study={education.field_of_study}
+                    achievements={education.achievements}
+                    start_date={education.start_date}
+                    end_date={education.end_date}
+                    isFirstElement={index !== 0} // Check if it's the first element
+                    isLastElement={index !== educations.length - 1} // Check if it's the last element
+                  />
+                ))}
+            </Box>
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          <Box paddingTop={1}>
-            {educations &&
-              educations.map((education, index) => (
-                <EducationCard
-                  key={education.id} // Use unique id for key
-                  institution_name={education.institution_name}
-                  degree={education.degree}
-                  field_of_study={education.field_of_study}
-                  achievements={education.achievements}
-                  start_date={education.start_date}
-                  end_date={education.end_date}
-                  isFirstElement={index !== 0} // Check if it's the first element
-                  isLastElement={index !== educations.length - 1} // Check if it's the last element
-                />
-              ))}
-          </Box>
-        </Grid>
-      </Grid>
+      </Box>
     </Fragment>
   );
 }

@@ -6,6 +6,7 @@ export const defaultPalette = (theme: any) => {
       greenText: "#2BB473",
       headingText: "#2BB673",
       generalText: "#262262",
+      darkBlueText: "#262262",
     },
     secondary: {
       main: "#FFF",

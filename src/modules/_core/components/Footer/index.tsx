@@ -2,23 +2,32 @@
 /* eslint-disable react/no-multi-comp */
 import { Fragment } from "react";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
+// import Container from "@mui/material/Container";
+// import Divider from "@mui/material/Divider";
+// import Link from "@mui/material/Link";
+// import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
 
-import facebook from "~/public/assets/facebook.png";
-import logo from "~/public/assets/octeklogo.png";
-import linkedIn from "~/public/assets/social.png";
-import twitter from "~/public/assets/twitter.png";
-import youtube from "~/public/assets/youtube.png";
+// import Image from "next/image";
+// import facebook from "~/public/assets/facebook.png";
+// import logo from "~/public/assets/octeklogo.png";
+// import linkedIn from "~/public/assets/social.png";
+// import twitter from "~/public/assets/twitter.png";
+// import youtube from "~/public/assets/youtube.png";
 import ContactUs from "~/core/components/ContactUs";
 
 function Copyright() {
   return (
-    <Typography variant="body2" sx={{ color: "text.secondary", marginY: 1 }}>
+    <Typography
+      sx={{
+        color: "text.secondary",
+        marginY: 1,
+        fontFamily: "Roboto",
+        fontSize: "18px",
+        fontWeight: 300,
+        lineHeight: "30.47px",
+      }}
+    >
       © 2022 Octek. All rights reserved.
     </Typography>
   );
@@ -27,9 +36,19 @@ function Copyright() {
 export default function Footer() {
   return (
     <Fragment>
-      <Divider />
+      {/* <Divider /> */}
       <ContactUs />
-      <Box sx={{ backgroundColor: "black" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100%",
+          backgroundColor: "white",
+        }}
+      >
+        <Copyright />
+      </Box>
+      {/* <Box sx={{ backgroundColor: "black" }}>
         <Container
           sx={{
             display: "flex",
@@ -304,7 +323,7 @@ export default function Footer() {
         >
           <Copyright />
         </Box>
-      </Box>
+      </Box> */}
     </Fragment>
   );
 }
