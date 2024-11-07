@@ -41,85 +41,6 @@ export default function ContactUs() {
               {/* Office Location Section */}
               <Grid item xs={12} md={6} sx={{ padding: 6 }}>
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "26px",
-                    fontWeight: 400,
-                    lineHeight: "45.7px",
-                    textAlign: "left",
-                  }}
-                  color="black"
-                  fontWeight="bold"
-                  gutterBottom
-                >
-                  Pakistan Office
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
-                  5th Floor, 85 J1-Block J1 Phase 2 Johar Town, Lahore,
-                  Pakistan.
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
-                  info@octek.co +92 (42) 32085440
-                </Typography>
-
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "26px",
-                    fontWeight: 400,
-                    lineHeight: "45.7px",
-                    textAlign: "left",
-                  }}
-                  color="black"
-                  fontWeight="bold"
-                  gutterBottom
-                >
-                  Canada Office
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
-                  Calgary, Canada.
-                </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
-                  raheel@octek.co +1 (647) 7865119
-                </Typography>
-
-                <Typography
                   variant="h6"
                   color="black"
                   fontWeight="bold"
@@ -157,6 +78,45 @@ export default function ContactUs() {
                   gutterBottom
                 >
                   raheel@octek.uk +46(0)7049414 87
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "26px",
+                    fontWeight: 400,
+                    lineHeight: "45.7px",
+                    textAlign: "left",
+                  }}
+                  color="black"
+                  fontWeight="bold"
+                  gutterBottom
+                >
+                  Pakistan Office
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                >
+                  5th Floor, 85 J1-Block J1 Phase 2 Johar Town, Lahore,
+                  Pakistan.
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                >
+                  info@octek.co +92 (42) 32085440
                 </Typography>
               </Grid>
 
@@ -220,10 +180,10 @@ export default function ContactUs() {
                       sx={{
                         marginTop: 2,
                         borderRadius: 8,
-                        backgroundColor: "darkblue",
+                        backgroundColor: "#2BB673",
                         color: "white",
                         "&:hover": {
-                          backgroundColor: "blue",
+                          backgroundColor: "#2BB673",
                         },
                       }}
                     >

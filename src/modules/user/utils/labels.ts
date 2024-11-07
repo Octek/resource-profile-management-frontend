@@ -3,7 +3,7 @@ export const labels = {
   watchVideo: "Watch Video",
   selectedExperience: "Selected experience",
   employment: "Employment",
-  technologies: "Technologies :",
+  technologies: "Technologies",
   education: "Education",
   location: "Turkey",
 };

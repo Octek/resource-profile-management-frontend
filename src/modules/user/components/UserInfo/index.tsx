@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import { UserInfoProps } from "~/modules/user/interfaces/user.interface";
+import { capitalizeFirstLetter } from "~/modules/user/utils/helper";
 
 export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
   return (
@@ -17,7 +18,7 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
             color: "primary.headingText",
           }}
         >
-          {name}
+          {capitalizeFirstLetter(name)}
         </Typography>
         <Typography
           sx={{
@@ -36,7 +37,7 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
         sx={{
           whiteSpace: "pre-line",
           fontFamily: "Roboto",
-          fontSize: "20px",
+          fontSize: "18px",
           fontWeight: 400,
           color: "primary.darkBlueText",
         }}

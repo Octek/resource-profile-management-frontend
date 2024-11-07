@@ -10,7 +10,7 @@ import { getYearRange } from "~/modules/user/utils/helper";
 export default function EducationCard({
   institution_name,
   degree,
-  field_of_study,
+  // field_of_study,
   start_date,
   end_date,
   isFirstElement,
@@ -84,21 +84,22 @@ export default function EducationCard({
             variant="h1"
             sx={{
               fontFamily: "Roboto",
-              fontSize: "30px",
+              fontSize: "25px",
               fontWeight: 400,
               lineHeight: "30px",
               color: "primary.greenText",
             }}
           >
-            {degree} - {field_of_study}
+            {degree}
+            {/* - {field_of_study} */}
           </Typography>
           <Typography
             variant="h3"
-            paddingTop={0.5}
+            paddingTop={1.5}
             sx={{
               fontFamily: "Roboto",
-              fontSize: "22px",
-              lineHeight: "22px",
+              fontSize: "20px",
+              lineHeight: "20px",
               fontWeight: 300,
               color: "primary.darkBlueText",
             }}

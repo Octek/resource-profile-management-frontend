@@ -101,7 +101,7 @@ export default function User() {
                       columnSpacing={4}
                       paddingTop={10}
                     >
-                      <Grid item container xs={12} md={8}>
+                      <Grid item container xs={12} lg={8}>
                         <Grid item>
                           <UserInfo
                             name={`${userData.first_name} ${userData.last_name}`}
@@ -109,18 +109,16 @@ export default function User() {
                             bio={userData.bio}
                           />
                         </Grid>
-                        {(breakpoint === "md" ||
-                          breakpoint === "lg" ||
-                          breakpoint === "xl") && (
-                          <Grid item xs={0} md={12}>
+                        {(breakpoint === "lg" || breakpoint === "xl") && (
+                          <Grid item xs={0} md={12} paddingTop={2}>
                             <UserSkills skills={userData.skills} />
                           </Grid>
                         )}
                       </Grid>
                       <Grid
                         item
-                        xs={12}
-                        md={4}
+                        md={12}
+                        lg={4}
                         display="flex"
                         justifyContent="center"
                       >
@@ -131,8 +129,8 @@ export default function User() {
                         />
                       </Grid>
                     </Grid>
-                    {(breakpoint === "sm" || breakpoint === "xs") && (
-                      <Grid xs={12}>
+                    {(breakpoint === "md" || breakpoint === "sm") && (
+                      <Grid xs={12} paddingTop={1}>
                         <UserSkills skills={userData.skills} />
                       </Grid>
                     )}

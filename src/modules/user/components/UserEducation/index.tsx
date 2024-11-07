@@ -20,7 +20,7 @@ export default function UserEducation({ educations }: UserEducationsProps) {
               variant="h1"
               sx={{
                 fontFamily: "Roboto",
-                fontSize: "40px",
+                fontSize: "35px",
                 fontWeight: 400,
                 lineHeight: "40px",
                 color: "primary.darkBlueText",

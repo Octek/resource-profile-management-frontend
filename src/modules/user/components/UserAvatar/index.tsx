@@ -1,4 +1,4 @@
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+// import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -7,9 +7,12 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 import { UserAvatarProps } from "~/modules/user/interfaces/user.interface";
-import { labels } from "~/modules/user/utils/labels";
 
-export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
+export default function UserAvatar({
+  name,
+  avatar,
+}: // location,
+UserAvatarProps) {
   const handleClick = () => {
     console.info("You clicked the Chip.");
   };
@@ -20,8 +23,9 @@ export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: "300px",
-        maxHeight: "450px",
+        maxWidth: 350,
+        maxHeight: 580,
+        minWidth: 350,
         backgroundColor: "primary.greyBg",
         borderRadius: "10px",
         padding: 3,
@@ -32,12 +36,15 @@ export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
       <Image
         src={avatar}
         alt="No Uploaded Logo"
-        width={200}
-        height={200}
+        width={300}
+        height={400}
         style={{
-          objectFit: "cover",
+          width: "100%",
+          height: "auto",
+          // objectFit: "cover",
           borderRadius: "10px",
         }}
+        sizes="100vw"
       />
 
       <CardContent
@@ -61,22 +68,10 @@ export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
         >
           {name}
         </Typography>
-        <Typography
-          variant="body2"
-          sx={{
-            color: "text.secondary",
-            fontFamily: "sans-serif",
-            fontSize: "15px",
-            fontWeight: 500,
-            lineHeight: "24px",
-          }}
-        >
-          {labels.watchVideo}
-        </Typography>
 
-        <Stack direction="row" spacing={1} paddingY={1.5}>
-          <LocationOnOutlinedIcon />
-          <Typography
+        <Stack direction="row" spacing={1}>
+          {/* <LocationOnOutlinedIcon /> */}
+          {/* <Typography
             variant="body2"
             sx={{
               color: "text.secondary",
@@ -87,7 +82,7 @@ export default function UserAvatar({ name, avatar,location }: UserAvatarProps) {
             }}
           >
             {location}
-          </Typography>
+          </Typography> */}
         </Stack>
         <Chip
           label="GET STARTED"

@@ -25,6 +25,7 @@ export interface UserEducationCardProps {
 
 export interface UserSkillDataProps {
   skill: Skill;
+  bgColor: string;
 }
 
 export interface UserCategory {

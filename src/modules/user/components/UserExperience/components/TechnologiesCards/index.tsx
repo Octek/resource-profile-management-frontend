@@ -6,18 +6,22 @@ import Image from "next/image";
 import { UserSkillDataProps } from "~/modules/user/interfaces/user.interface";
 import { getSKillLogo } from "~/modules/user/utils/helper";
 
-export default function TechnologiesCard({ skill }: UserSkillDataProps) {
+export default function TechnologiesCard({
+  skill,
+  bgColor,
+}: UserSkillDataProps) {
   return (
     <Box
       sx={{
         borderRadius: "40px",
-        backgroundColor: "white",
+        backgroundColor: bgColor,
       }}
     >
       <Stack
         direction="row"
         justifyContent="space-between"
-        paddingX={1.5}
+        paddingLeft={1}
+        paddingRight={3}
         alignItems="center"
       >
         <Image
@@ -29,10 +33,10 @@ export default function TechnologiesCard({ skill }: UserSkillDataProps) {
         <Typography
           paddingY={1.2}
           sx={{
-            fontFamily: "sans-serif",
+            fontFamily: "Roboto",
             fontSize: "14px",
-            fontWeight: 500,
-            lineHeight: "24px",
+            fontWeight: 400,
+            lineHeight: "18px",
             color: "black",
           }}
         >

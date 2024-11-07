@@ -30,10 +30,10 @@ export default function UserSkills({ skills }: UserSkillsProps) {
             <Grid item xs={6} key={categoryName}>
               <Typography
                 sx={{
-                  fontFamily: "sans-serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  lineHeight: "24px",
+                  fontFamily: "Roboto",
+                  fontSize: "18px",
+                  fontWeight: 500,
+                  lineHeight: "18px",
                   color: "black",
                 }}
                 paddingY={2}
@@ -50,7 +50,7 @@ export default function UserSkills({ skills }: UserSkillsProps) {
               >
                 {skills.map((skill: Skill, index) => (
                   // eslint-disable-next-line react/no-array-index-key
-                  <SkillCard key={index} skill={skill} />
+                  <SkillCard key={index} skill={skill} bgColor="white" />
                 ))}
               </Grid>
             </Grid>

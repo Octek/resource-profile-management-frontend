@@ -13,7 +13,7 @@ import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
 
-import logo from "~/public/assets/octeklogo.png";
+import logo from "~/public/assets/Sourceit-logo.svg";
 
 const StyledToolbar = styled(Toolbar)(() => ({
   display: "flex",
@@ -41,11 +41,11 @@ export default function AppToolBar() {
             justifyContent: "space-between",
           }}
         >
-          <Image src={logo} alt="" style={{ height: "49px", width: "152px" }} />
+          <Image src={logo} alt="" style={{ height: "55px", width: "250px" }} />
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: 10 }}>
             <Button
               variant="text"
-              href="https://octek.co/"
+              href="https://octek.se/#"
               sx={{
                 color: "black",
                 paddingRight: 4,
@@ -59,7 +59,7 @@ export default function AppToolBar() {
             </Button>
             <Button
               variant="text"
-              href="https://octek.co/services/"
+              href="https://octek.se/#find_a_developer"
               sx={{
                 color: "black",
                 paddingRight: 4,
@@ -69,42 +69,14 @@ export default function AppToolBar() {
                 fontWeight: 400,
               }}
             >
-              Services
+              Find A Developer
             </Button>
             <Button
               variant="text"
-              href="https://octek.co/job/"
+              href="https://octek.se/#contact"
               sx={{
                 color: "black",
                 paddingRight: 4,
-                textTransform: "none",
-                fontFamily: "sans-serif",
-                fontSize: "18px",
-                fontWeight: 400,
-              }}
-            >
-              Career
-            </Button>
-            <Button
-              variant="text"
-              href="https://octek.co/about-us/"
-              sx={{
-                color: "black",
-                paddingRight: 4,
-                textTransform: "none",
-                fontFamily: "sans-serif",
-                fontSize: "18px",
-                fontWeight: 400,
-              }}
-            >
-              About us
-            </Button>
-            <Button
-              variant="text"
-              href="https://octek.co/contact/"
-              sx={{
-                color: "black",
-                paddingRight: 5,
                 textTransform: "none",
                 fontFamily: "sans-serif",
                 fontSize: "18px",
@@ -112,6 +84,20 @@ export default function AppToolBar() {
               }}
             >
               Contact us
+            </Button>
+            <Button
+              variant="text"
+              href="https://octek.se/#faq"
+              sx={{
+                color: "black",
+                paddingRight: 4,
+                textTransform: "none",
+                fontFamily: "sans-serif",
+                fontSize: "18px",
+                fontWeight: 400,
+              }}
+            >
+              Faq’s
             </Button>
           </Box>
         </Box>
@@ -133,25 +119,25 @@ export default function AppToolBar() {
                 </IconButton>
               </Box>
               <Divider sx={{ my: 3 }} />
-              <MenuItem component={Link} href="https://octek.co/">
+              <MenuItem component={Link} href="https://octek.se/#">
                 Home
               </MenuItem>
-              <MenuItem component={Link} href="https://octek.co/services/">
-                Services
+              <MenuItem
+                component={Link}
+                href="https://octek.se/#find_a_developer"
+              >
+                Find A Developer
               </MenuItem>
-              <MenuItem component={Link} href="https://octek.co/job/">
-                Career
-              </MenuItem>
-              <MenuItem component={Link} href="https://octek.co/about-us/">
-                About us
-              </MenuItem>
-              <MenuItem component={Link} href="https://octek.co/contact/">
+              <MenuItem component={Link} href="hhttps://octek.se/#contact">
                 Contact us
+              </MenuItem>
+              <MenuItem component={Link} href="https://octek.se/#faq">
+                Faq’s
               </MenuItem>
             </Box>
           </Drawer>
         </Box>
-        <Box
+        {/* <Box
           sx={{
             // display: { xs: "none", md: "flex" },
             display: "flex",
@@ -162,7 +148,7 @@ export default function AppToolBar() {
           <Button color="primary" variant="contained" size="small">
             Get a Quote
           </Button>
-        </Box>
+        </Box> */}
       </StyledToolbar>
     </AppBar>
   );

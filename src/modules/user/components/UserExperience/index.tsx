@@ -32,7 +32,7 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
             <Typography
               sx={{
                 fontFamily: "Roboto",
-                fontSize: "40px",
+                fontSize: "35px",
                 fontWeight: 400,
                 lineHeight: "40px",
                 color: "primary.darkBlueText",

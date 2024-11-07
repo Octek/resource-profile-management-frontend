@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 
 import { UserSkillDataProps } from "~/modules/user/interfaces/user.interface";
-import { getSKillLogo } from "~/modules/user/utils/helper";
 
 export default function SkillCard({ skill }: UserSkillDataProps) {
   return (
@@ -16,17 +15,12 @@ export default function SkillCard({ skill }: UserSkillDataProps) {
       }}
     >
       <Stack direction="row" paddingX={2} alignItems="center">
-        <Image
-          src={skill.icon}
-          alt="No Uploaded Logo"
-          width={35}
-          height={32}
-        />
+        <Image src={skill.icon} alt="No Uploaded Logo" width={35} height={32} />
         <Typography
           sx={{
-            fontFamily: "sans-serif",
+            fontFamily: "Roboto",
             fontSize: "14px",
-            fontWeight: 500,
+            fontWeight: 400,
             lineHeight: "24px",
             color: "black",
           }}

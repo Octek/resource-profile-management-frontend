@@ -21,6 +21,10 @@ export const experienceKeyPoints: string[] = [
   "Developing web applications using JSP Technologies.",
 ];
 
+export const capitalizeFirstLetter = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 export const userTechnologies: any[] = [
   "React.js",
   "TypeScript",

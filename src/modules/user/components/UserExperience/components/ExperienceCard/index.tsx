@@ -95,7 +95,7 @@ export default function ExperienceCard({
           <Typography
             sx={{
               fontFamily: "Roboto",
-              fontSize: "30px",
+              fontSize: "25px",
               fontWeight: 400,
               lineHeight: "30px",
               color: "primary.greenText",
@@ -105,11 +105,11 @@ export default function ExperienceCard({
           </Typography>
           <Typography
             variant="h3"
-            paddingTop={2}
+            paddingTop={1.5}
             sx={{
               fontFamily: "Roboto",
-              fontSize: "22px",
-              lineHeight: "22px",
+              fontSize: "20px",
+              lineHeight: "20px",
               fontWeight: 300,
               color: "primary.darkBlueText",
             }}
@@ -119,11 +119,11 @@ export default function ExperienceCard({
           </Typography>
         </Box>
         <Typography
-          paddingTop={4}
+          paddingTop={1.5}
           sx={{
             fontFamily: "Roboto",
-            fontSize: "22px",
-            lineHeight: "22px",
+            fontSize: "20px",
+            lineHeight: "20px",
             fontWeight: 300,
             color: "primary.darkBlueText",
           }}
@@ -152,12 +152,11 @@ export default function ExperienceCard({
                     <Typography
                       variant="h3"
                       component="div"
-                      paddingTop={0.2}
                       sx={{
                         fontFamily: "Roboto",
-                        fontSize: "20px",
-                        lineHeight: "22px",
-                        fontWeight: 500,
+                        fontSize: "18px",
+                        lineHeight: "18px",
+                        fontWeight: 300,
                         color: "primary.darkBlueText",
                       }}
                     >
@@ -169,35 +168,41 @@ export default function ExperienceCard({
             ))}
         </List>
 
-        {skills && (
-          <Grid direction="row" container xs={12} paddingTop={2} rowGap={2}>
-            <Grid item xs={4}>
-              <Typography
-                variant="h1"
-                sx={{
-                  fontFamily: "Roboto",
-                  fontSize: "20px",
-                  fontWeight: 400,
-                  lineHeight: "22px",
-                  color: "primary.darkBlueText",
-                }}
-              >
-                {labels.technologies}
-              </Typography>
-            </Grid>
+        {skills && skills.length > 0 && (
+          <Stack
+            direction="row"
+            width="100%"
+            paddingTop={4}
+            paddingBottom={6}
+            spacing={2}
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Typography
+              sx={{
+                fontFamily: "Roboto",
+                fontSize: "20px",
+                fontWeight: 400,
+                lineHeight: "20px",
+                color: "primary.darkBlueText",
+              }}
+            >
+              {labels.technologies}
+            </Typography>
             <Grid
               container
               item
-              xs={8}
+              xs={12}
               direction="row"
               rowGap={1}
               columnGap={1}
             >
               {skills.map((skill, index) => (
-                <TechnologiesCard key={index} skill={skill} />
+                <TechnologiesCard key={index} skill={skill} bgColor="#f2f2f2" />
               ))}
             </Grid>
-          </Grid>
+          </Stack>
         )}
       </Box>
     </Stack>
