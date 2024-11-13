@@ -54,7 +54,7 @@ export const allTechnologies: string[] = [
   "API",
 ];
 
-export const getSKillLogo = (skillText: string) => {
+export const getSKillLogo = (skillText: string, skillURL: string) => {
   if (skillText === "React.js") {
     return reactIcon;
   } else if (skillText === "Angular") {
@@ -72,7 +72,7 @@ export const getSKillLogo = (skillText: string) => {
   } else if (skillText === "RxJs.js") {
     return rxjsIcon;
   } else {
-    return reactIcon;
+    return skillURL; // reactIcon;
   }
 };
 

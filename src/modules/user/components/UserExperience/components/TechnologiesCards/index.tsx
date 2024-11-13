@@ -25,7 +25,7 @@ export default function TechnologiesCard({
         alignItems="center"
       >
         <Image
-          src={getSKillLogo(skill.name)}
+          src={getSKillLogo(skill.name, skill.icon)}
           alt="No Uploaded Logo"
           width={35}
           height={32}
