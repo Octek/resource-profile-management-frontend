@@ -12,6 +12,4 @@ const nextConfig = {
    basePath: '/resource-profile-management-frontend',
 };
 
-module.exports = {
-  basePath: '/resource-profile-management-frontend',
-};
+module.exports = nextConfig;
