@@ -205,7 +205,8 @@ export default function ContactUs() {
                     color="green"
                     gutterBottom
                   >
-                    Instant solutions at your fingertips – just a text away!
+                    Quick solutions at your fingertips - just a text message
+                    away!
                   </Typography>
 
                   <form>

@@ -44,7 +44,7 @@ export default function AppToolBar() {
           <Image
             src={logo}
             alt=""
-            style={{ height: "76.45px", width: "200.13px" }}
+            style={{ height: "76.45px", width: "180.13px" }}
           />
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: 10 }}>
             <Button

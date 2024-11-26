@@ -28,7 +28,7 @@ function Copyright() {
         lineHeight: "30.47px",
       }}
     >
-      © 2022 Octek. All rights reserved.
+      Copyright © 2024 Source-It
     </Typography>
   );
 }
