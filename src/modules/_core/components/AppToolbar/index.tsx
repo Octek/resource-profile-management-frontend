@@ -13,7 +13,7 @@ import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
 
-import logo from "~/public/assets/Sourceit-logo.svg";
+import logo from "~/public/assets/sourceIt.png";
 
 const StyledToolbar = styled(Toolbar)(() => ({
   display: "flex",
@@ -41,7 +41,11 @@ export default function AppToolBar() {
             justifyContent: "space-between",
           }}
         >
-          <Image src={logo} alt="" style={{ height: "55px", width: "250px" }} />
+          <Image
+            src={logo}
+            alt=""
+            style={{ height: "76.45px", width: "200.13px" }}
+          />
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: 10 }}>
             <Button
               variant="text"

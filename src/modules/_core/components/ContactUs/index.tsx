@@ -3,6 +3,8 @@
 import { Fragment } from "react";
 import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 
+import officeImage from "~/public/assets/officeImage.jpg";
+
 export default function ContactUs() {
   return (
     <Fragment>
@@ -23,10 +25,9 @@ export default function ContactUs() {
             xs={12}
             md={2.5}
             sx={{
-              backgroundImage:
-                'url("https://s3-alpha-sig.figma.com/img/8d2f/c3f5/5be77a7402f50c564252ddfff835da57?Expires=1731888000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Nhess4rRlYK9rGda2-I81VJSAJaaddb7nPseP86SMVOGdpG70Bv3ccq6LcOpZQA0olhgvfk4KmJBCR8bsrk6CPO9y1KRslh6icLvNLHe9wP~VhFKd7oNv3FeN4ORemGutKGcoeaqKJueL8sunIPoeJn5P4EK2hP~1jT8fEksUy8c3MjJwdnqKRpZ2M9JMsO7nHccXzTjWoDnsLnpo8qY0S~o6QN3PMIINzPq5ik-3czK5ktU22TZV~w8bjlmWypFl2pG6GfXrMoH4cOvZFvsXBlk7u2bPbvPTKZ38C4Nxx398D2BNaOCFZa-H~7ThjNB5CgjAVPwT9uaMQxDYMPHng__")', // Replace with your background image URL
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundImage: `url(${officeImage.src})`,
             }}
           />
 
@@ -53,7 +54,7 @@ export default function ContactUs() {
                     textAlign: "left",
                   }}
                 >
-                  Sweden Office
+                  Office in Sweden
                 </Typography>
                 <Typography
                   sx={{
@@ -65,7 +66,7 @@ export default function ContactUs() {
                   color="white"
                   gutterBottom
                 >
-                  182 32, Danderyd Vendevägen 87, Sweden
+                  Vendevägen 87, 182 32, Danderyd, Sweden
                 </Typography>
                 <Typography
                   sx={{
@@ -76,8 +77,35 @@ export default function ContactUs() {
                   }}
                   color="white"
                   gutterBottom
+                  style={{ wordWrap: "break-word" }}
                 >
-                  raheel@octek.uk +46(0)7049414 87
+                  Client Manager: Nicklas Rydberg
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                  style={{ wordWrap: "break-word" }}
+                >
+                  Email: nicklas.rydberg@sourceit.se
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                  style={{ wordWrap: "break-word" }}
+                >
+                  Phone: +46 70-774 30 76
                 </Typography>
                 <Typography
                   sx={{
@@ -91,7 +119,7 @@ export default function ContactUs() {
                   fontWeight="bold"
                   gutterBottom
                 >
-                  Pakistan Office
+                  Office in Asia
                 </Typography>
                 <Typography
                   sx={{
@@ -116,7 +144,19 @@ export default function ContactUs() {
                   color="white"
                   gutterBottom
                 >
-                  info@octek.co +92 (42) 32085440
+                  Email: hej@sourceit.se
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                >
+                  Phone: +92 (42) 32085440
                 </Typography>
               </Grid>
 
