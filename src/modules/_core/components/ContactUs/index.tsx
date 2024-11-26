@@ -74,6 +74,7 @@ export default function ContactUs() {
                     fontSize: "18px",
                     fontWeight: 300,
                     lineHeight: "29.3px",
+                    paddingTop: 2,
                   }}
                   color="white"
                   gutterBottom
@@ -106,6 +107,34 @@ export default function ContactUs() {
                   style={{ wordWrap: "break-word" }}
                 >
                   Phone: +46 70-774 30 76
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                    paddingTop: 2,
+                  }}
+                  color="white"
+                  gutterBottom
+                  style={{ wordWrap: "break-word" }}
+                >
+                  Client Manager: Aladdin Kader
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Roboto",
+                    fontSize: "18px",
+                    fontWeight: 300,
+                    lineHeight: "29.3px",
+                  }}
+                  color="white"
+                  gutterBottom
+                  style={{ wordWrap: "break-word" }}
+                >
+                  Email: aladdin.kader@sourceit.se
                 </Typography>
                 <Typography
                   sx={{
