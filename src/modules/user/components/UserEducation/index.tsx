@@ -15,7 +15,7 @@ export default function UserEducation({ educations }: UserEducationsProps) {
     <Fragment>
       <Box sx={{ width: "100%" }} flexDirection="column">
         <Grid container direction="row" xs={12} spacing={3}>
-          <Grid item xs={4}>
+          <Grid item sm={12} lg={4}>
             <Typography
               variant="h1"
               sx={{
@@ -29,7 +29,7 @@ export default function UserEducation({ educations }: UserEducationsProps) {
               {labels.education}
             </Typography>
           </Grid>
-          <Grid item xl={8} lg={12}>
+          <Grid item sm={12} lg={8}>
             <Box paddingTop={1}>
               {educations &&
                 educations.map((education, index) => (

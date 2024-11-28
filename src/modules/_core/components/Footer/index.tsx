@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 // import twitter from "~/public/assets/twitter.png";
 // import youtube from "~/public/assets/youtube.png";
 import ContactUs from "~/core/components/ContactUs";
+import { labels } from "~/core/utils/labels";
 
 function Copyright() {
   return (
@@ -28,7 +29,7 @@ function Copyright() {
         lineHeight: "30.47px",
       }}
     >
-      Copyright © 2024 Source-It
+      {labels.footerText}
     </Typography>
   );
 }

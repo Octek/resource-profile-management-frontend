@@ -81,43 +81,45 @@ export default function User() {
                 <Fragment>
                   <CssBaseline enableColorScheme />
                   <AppToolBar />
+
                   <Container
-                    maxWidth={false}
-                    component="main"
+                    maxWidth="lg" // Adjusts container width for responsiveness
                     sx={{
-                      width: "70%",
+                      width: "100%",
                       display: "flex",
                       flexDirection: "column",
-                      my: 16,
+                      // my: { xs: 16, md: 2 }, // Dynamic spacing
+                      marginTop: 16,
                       gap: 4,
+                      boxSizing: "border-box",
+                      padding: { xs: 2, md: 4 }, // Padding for smaller screens
                     }}
                   >
                     <Grid
                       container
-                      xs={12}
-                      direction="row"
-                      display="flex"
-                      justifyContent="center"
-                      columnSpacing={4}
-                      paddingTop={10}
+                      spacing={2}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                      }}
                     >
-                      <Grid item container xs={12} lg={8}>
-                        <Grid item>
-                          <UserInfo
-                            name={`${userData.first_name} ${userData.last_name}`}
-                            jobTitle={userData.job_title}
-                            bio={userData.bio}
-                          />
-                        </Grid>
-                        {(breakpoint === "lg" || breakpoint === "xl") && (
-                          <Grid item xs={0} md={12} paddingTop={2}>
+                      <Grid item xs={12} md={8} lg={8}>
+                        <UserInfo
+                          name={`${userData.first_name} ${userData.last_name}`}
+                          jobTitle={userData.job_title}
+                          bio={userData.bio}
+                        />
+                        {["md", "sm", "xs"].includes(breakpoint) && (
+                          <Box sx={{ paddingTop: 4 }}>
                             <UserSkills skills={userData.skills} />
-                          </Grid>
+                          </Box>
                         )}
                       </Grid>
                       <Grid
                         item
-                        md={12}
+                        xs={12}
+                        md={4}
                         lg={4}
                         display="flex"
                         justifyContent="center"
@@ -129,52 +131,31 @@ export default function User() {
                         />
                       </Grid>
                     </Grid>
-                    {(breakpoint === "md" || breakpoint === "sm") && (
-                      <Grid xs={12} paddingTop={1}>
+                    {["lg", "xl"].includes(breakpoint) && (
+                      <Grid container spacing={2} sx={{ paddingTop: 4 }}>
                         <UserSkills skills={userData.skills} />
                       </Grid>
                     )}
                   </Container>
 
-                  <Box width="100%">
-                    <Container
-                      maxWidth={false}
-                      component="main"
-                      sx={{
-                        width: "70%",
-                        display: "flex",
-                        flexDirection: "column",
-                        marginTop: 16,
-                        paddingBottom: 10,
-                        gap: 4,
-                      }}
-                    >
-                      <Grid
-                        container
-                        xs={12}
-                        direction="row"
-                        display="flex"
-                        justifyContent="center"
-                      >
-                        <Grid item container xs={12} lg={10}>
-                          <UserExperience experiences={userData.experiences} />
-                        </Grid>
-                        <Grid item xs={12} lg={2} />
+                  <Container
+                    maxWidth="lg"
+                    sx={{
+                      width: "100%",
+                      // marginTop: 8,
+                      padding: { xs: 2, md: 4 },
+                      gap: 4,
+                    }}
+                  >
+                    <Grid spacing={4}>
+                      <Grid item xs={12} lg={10}>
+                        <UserExperience experiences={userData.experiences} />
                       </Grid>
-                      <Grid
-                        container
-                        xs={12}
-                        direction="row"
-                        display="flex"
-                        justifyContent="center"
-                      >
-                        <Grid item container xs={12} lg={10}>
-                          <UserEducation educations={userData.educations} />
-                        </Grid>
-                        <Grid item xs={12} lg={2} />
+                      <Grid item xs={12} lg={10}>
+                        <UserEducation educations={userData.educations} />
                       </Grid>
-                    </Container>
-                  </Box>
+                    </Grid>
+                  </Container>
 
                   <Footer />
                 </Fragment>
