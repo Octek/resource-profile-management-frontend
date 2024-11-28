@@ -23,6 +23,7 @@ function Copyright() {
       sx={{
         color: "text.secondary",
         marginY: 1,
+        paddingX: 2,
         fontFamily: "Roboto",
         fontSize: "18px",
         fontWeight: 300,
@@ -45,6 +46,7 @@ export default function Footer() {
           justifyContent: "center",
           width: "100%",
           backgroundColor: "white",
+          textAlign: "center",
         }}
       >
         <Copyright />

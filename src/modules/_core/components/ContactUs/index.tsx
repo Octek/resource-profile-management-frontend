@@ -1,11 +1,54 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable func-style */
 /* eslint-disable react/no-multi-comp */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 
 import officeImage from "~/public/assets/officeImage.jpg";
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (event: any) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+
+    const googleFormUrl =
+      "https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse";
+
+    const formBody = new URLSearchParams({
+      "entry.1234567890": formData.name, // Replace entry IDs with your actual IDs
+      "entry.9876543210": formData.email,
+      "entry.1112131415": formData.subject,
+      "entry.1617181920": formData.message,
+    });
+
+    try {
+      await fetch(googleFormUrl, {
+        method: "POST",
+        body: formBody.toString(),
+        headers: {
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+
+      alert("Your message has been sent!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <Fragment>
       <Box
@@ -209,14 +252,17 @@ export default function ContactUs() {
                     away!
                   </Typography>
 
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <TextField
                       fullWidth
                       label="Your Name (required)"
                       variant="outlined"
                       margin="normal"
                       required
+                      name="name"
                       sx={{ borderRadius: 1, fontFamily: "Roboto" }}
+                      value={formData.name}
+                      onChange={handleChange}
                     />
                     <TextField
                       fullWidth
@@ -224,14 +270,20 @@ export default function ContactUs() {
                       variant="outlined"
                       margin="normal"
                       required
+                      name="email"
                       sx={{ borderRadius: 1, fontFamily: "Roboto" }}
+                      value={formData.email}
+                      onChange={handleChange}
                     />
                     <TextField
                       fullWidth
                       label="Subject"
                       variant="outlined"
                       margin="normal"
+                      name="subject"
                       sx={{ borderRadius: 1, fontFamily: "Roboto" }}
+                      value={formData.subject}
+                      onChange={handleChange}
                     />
                     <TextField
                       fullWidth
@@ -240,7 +292,10 @@ export default function ContactUs() {
                       margin="normal"
                       multiline
                       rows={4}
+                      name="message"
                       sx={{ borderRadius: 1, fontFamily: "Roboto" }}
+                      value={formData.message}
+                      onChange={handleChange}
                     />
 
                     <Button
