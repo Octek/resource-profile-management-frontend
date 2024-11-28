@@ -15,12 +15,23 @@ import Image from "next/image";
 
 import logo from "~/public/assets/sourceIt.png";
 
-const StyledToolbar = styled(Toolbar)(() => ({
+const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
   backgroundColor: "white",
-  height: "115px",
+  height: "80px", // Default height
+  [theme.breakpoints.up("lg")]: {
+    height: "115px", // Height for lg and larger screens
+  },
+}));
+
+const ResponsiveImage = styled(Image)(({ theme }) => ({
+  width: "auto",
+  height: "50px", // Default height for larger screens
+  [theme.breakpoints.up("lg")]: {
+    height: "76.45px", // Height for xs screens
+  },
 }));
 
 export default function AppToolBar() {
@@ -32,7 +43,10 @@ export default function AppToolBar() {
 
   return (
     <AppBar position="fixed">
-      <StyledToolbar disableGutters sx={{ paddingX: "48px" }}>
+      <StyledToolbar
+        disableGutters
+        sx={{ paddingX: { xs: "10px", md: "48px" } }}
+      >
         <Box
           sx={{
             flexGrow: 1,
@@ -41,11 +55,7 @@ export default function AppToolBar() {
             justifyContent: "space-between",
           }}
         >
-          <Image
-            src={logo}
-            alt=""
-            style={{ height: "76.45px", width: "180.13px" }}
-          />
+          <ResponsiveImage src={logo} alt="Source It" />
           <Box sx={{ display: { xs: "none", md: "flex" }, paddingRight: 10 }}>
             <Button
               variant="text"
