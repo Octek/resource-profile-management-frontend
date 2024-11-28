@@ -17,22 +17,22 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
         <Typography
           sx={{
             fontFamily: "Roboto",
-            fontSize: "60px",
+            fontSize: { xs: 40, md: 60 },
             fontWeight: 700,
-            lineHeight: "60px",
+            lineHeight: "40px",
             color: "primary.headingText",
-            paddingY: 8,
+            paddingY: 3,
           }}
         >
           {labels.selectedExperience}
         </Typography>
 
         <Grid container direction="row" xs={12} spacing={3}>
-          <Grid item xs={4}>
+          <Grid item sm={12} lg={4}>
             <Typography
               sx={{
                 fontFamily: "Roboto",
-                fontSize: "35px",
+                fontSize: { xs: 25, md: 35 },
                 fontWeight: 400,
                 lineHeight: "40px",
                 color: "primary.darkBlueText",
@@ -41,8 +41,8 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
               {labels.employment}
             </Typography>
           </Grid>
-          <Grid item xl={8} lg={12}>
-            <Box paddingTop={1}>
+          <Grid item sm={12} lg={8}>
+            <Box>
               {experiences.map((experience, index) => (
                 <ExperienceCard
                   key={experience.id} // Use unique id for key

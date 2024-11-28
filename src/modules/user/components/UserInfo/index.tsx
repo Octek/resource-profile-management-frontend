@@ -7,14 +7,14 @@ import { capitalizeFirstLetter } from "~/modules/user/utils/helper";
 
 export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
   return (
-    <Box flexDirection="column" padding={2}>
+    <Box flexDirection="column">
       <Box flexDirection="column">
         <Typography
           sx={{
             fontFamily: "Roboto",
-            fontSize: "60px",
+            fontSize: { xs: 40, md: 60 },
             fontWeight: 700,
-            lineHeight: "60px",
+            lineHeight: "40px",
             color: "primary.headingText",
           }}
         >
@@ -23,7 +23,7 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
         <Typography
           sx={{
             fontFamily: "Roboto",
-            fontSize: "40px",
+            fontSize: { xs: 30, md: 40 },
             fontWeight: 400,
             lineHeight: "60px",
             color: "primary.darkBlueText",
@@ -33,13 +33,13 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
         </Typography>
       </Box>
       <Typography
-        paddingTop={4}
         sx={{
           whiteSpace: "pre-line",
           fontFamily: "Roboto",
           fontSize: "18px",
           fontWeight: 400,
           color: "primary.darkBlueText",
+          paddingTop: { xs: 2, md: 4 },
         }}
       >
         {bio}

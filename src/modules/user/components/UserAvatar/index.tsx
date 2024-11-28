@@ -25,10 +25,10 @@ UserAvatarProps) {
         flexDirection: "column",
         maxWidth: 350,
         maxHeight: 580,
-        minWidth: 350,
+        minWidth: { xs: "80%", sm: 250, md: 250, large: 300 },
         backgroundColor: "primary.greyBg",
         borderRadius: "10px",
-        padding: 3,
+        padding: 2,
         justifyContent: "center",
         alignItems: "center",
       }}
