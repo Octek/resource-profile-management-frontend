@@ -6,6 +6,8 @@ import { Box, Button, Grid, Paper, TextField, Typography } from "@mui/material";
 
 import officeImage from "~/public/assets/officeImage.jpg";
 
+import { style } from "~/core/components/style";
+
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     name: "",
@@ -56,7 +58,8 @@ export default function ContactUs() {
           flexGrow: 1,
           borderRadius: "40px 40px 0 0", // Rounded top-left and top-right corners
           overflow: "hidden", // Ensure the content respects the rounded corners
-          width: "100%",
+          // eslint-disable-next-line id-length
+          width: { xs: "98%", lg: "80%" },
           marginX: "auto",
           height: "auto",
         }}
@@ -87,38 +90,21 @@ export default function ContactUs() {
                 <Typography
                   variant="h6"
                   color="black"
-                  fontWeight="bold"
                   gutterBottom
                   sx={{
                     fontFamily: "Roboto",
-                    fontSize: "26px",
-                    fontWeight: 400,
-                    lineHeight: "45.7px",
+                    fontSize: "24px",
+                    fontWeight: 800,
                     textAlign: "left",
                   }}
                 >
                   Office in Sweden
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
+                <Typography sx={style.footerText} color="white" gutterBottom>
                   Vendevägen 87, 182 32, Danderyd, Sweden
                 </Typography>
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                    paddingTop: 2,
-                  }}
+                  sx={style.footerText}
                   color="white"
                   gutterBottom
                   style={{ wordWrap: "break-word" }}
@@ -126,12 +112,7 @@ export default function ContactUs() {
                   Client Manager: Nicklas Rydberg
                 </Typography>
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
+                  sx={style.footerText}
                   color="white"
                   gutterBottom
                   style={{ wordWrap: "break-word" }}
@@ -139,12 +120,7 @@ export default function ContactUs() {
                   Email: nicklas.rydberg@sourceit.se
                 </Typography>
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
+                  sx={style.footerText}
                   color="white"
                   gutterBottom
                   style={{ wordWrap: "break-word" }}
@@ -153,13 +129,7 @@ export default function ContactUs() {
                 </Typography>
 
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                    paddingTop: 2,
-                  }}
+                  sx={style.footerText}
                   color="white"
                   gutterBottom
                   style={{ wordWrap: "break-word" }}
@@ -167,12 +137,7 @@ export default function ContactUs() {
                   Client Manager: Aladdin Kader
                 </Typography>
                 <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
+                  sx={style.footerText}
                   color="white"
                   gutterBottom
                   style={{ wordWrap: "break-word" }}
@@ -180,54 +145,27 @@ export default function ContactUs() {
                   Email: aladdin.kader@sourceit.se
                 </Typography>
                 <Typography
+                  variant="h6"
+                  color="black"
+                  gutterBottom
                   sx={{
                     fontFamily: "Roboto",
-                    fontSize: "26px",
-                    fontWeight: 400,
-                    lineHeight: "45.7px",
+                    fontSize: "24px",
+                    fontWeight: 800,
+                    marginTop: 4,
                     textAlign: "left",
                   }}
-                  color="black"
-                  fontWeight="bold"
-                  gutterBottom
                 >
                   Office in Asia
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
+                <Typography sx={style.footerText} color="white" gutterBottom>
                   5th Floor, 85 J1-Block J1 Phase 2 Johar Town, Lahore,
                   Pakistan.
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
+                <Typography sx={style.footerText} color="white" gutterBottom>
                   Email: hej@sourceit.se
                 </Typography>
-                <Typography
-                  sx={{
-                    fontFamily: "Roboto",
-                    fontSize: "18px",
-                    fontWeight: 300,
-                    lineHeight: "29.3px",
-                  }}
-                  color="white"
-                  gutterBottom
-                >
+                <Typography sx={style.footerText} color="white" gutterBottom>
                   Phone: +92 (42) 32085440
                 </Typography>
               </Grid>
@@ -240,12 +178,12 @@ export default function ContactUs() {
                 >
                   <Typography
                     sx={{
-                      fontFamily: "Roboto",
-                      fontSize: "20px",
+                      fontFamily: '"Hind", Sans-serif"',
+                      fontSize: "17px",
                       fontWeight: 500,
                       lineHeight: "30.47px",
+                      color: "#2BB473",
                     }}
-                    color="green"
                     gutterBottom
                   >
                     Quick solutions at your fingertips - just a text message
@@ -304,7 +242,9 @@ export default function ContactUs() {
                       variant="contained"
                       sx={{
                         marginTop: 2,
-                        borderRadius: 8,
+                        borderRadius: 2,
+                        padding: "10px 14px",
+                        textTransform: "none",
                         backgroundColor: "#2BB673",
                         color: "white",
                         "&:hover": {
@@ -312,7 +252,7 @@ export default function ContactUs() {
                         },
                       }}
                     >
-                      Send us a Message
+                      Send us a message
                     </Button>
                   </form>
                 </Paper>

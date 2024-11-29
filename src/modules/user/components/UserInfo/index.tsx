@@ -13,8 +13,8 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
           sx={{
             fontFamily: "Roboto",
             fontSize: { xs: 40, md: 60 },
-            fontWeight: 700,
-            lineHeight: "40px",
+            fontWeight: 500,
+            lineHeight: "50px",
             color: "primary.headingText",
           }}
         >
@@ -24,7 +24,7 @@ export default function UserInfo({ name, jobTitle, bio }: UserInfoProps) {
           sx={{
             fontFamily: "Roboto",
             fontSize: { xs: 30, md: 40 },
-            fontWeight: 400,
+            fontWeight: 500,
             lineHeight: "60px",
             color: "primary.darkBlueText",
           }}

@@ -18,10 +18,10 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
           sx={{
             fontFamily: "Roboto",
             fontSize: { xs: 40, md: 60 },
-            fontWeight: 700,
-            lineHeight: "40px",
+            fontWeight: 500,
+            lineHeight: "50px",
             color: "primary.headingText",
-            paddingY: 3,
+            paddingY: 4,
           }}
         >
           {labels.selectedExperience}

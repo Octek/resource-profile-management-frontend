@@ -61,3 +61,35 @@ export const textfieldStyle = makeStyles({
     },
   },
 });
+
+export const style = {
+  navLink: {
+    color: "rgba(0, 0, 0, 0.87)",
+    marginRight: 5,
+    textTransform: "none",
+    textDecoration: "none",
+    fontFamily: '"Hind", Sans-serif"',
+    fontSize: "16px",
+    fontWeight: 400,
+  },
+  navText: {
+    fontSize: "16px",
+    "&:hover": {
+      color: "#2BB673",
+      Opacity: 0.5,
+    },
+  },
+  footerTextHeading: {
+    fontFamily: '"Hind", Sans-serif"',
+    fontSize: "26px",
+    fontWeight: 700,
+    lineHeight: "45.7px",
+    textAlign: "left",
+  },
+  footerText: {
+    fontFamily: '"Hind", Sans-serif"',
+    fontSize: "18px",
+    fontWeight: 500,
+    lineHeight: "29.3px",
+  },
+};
