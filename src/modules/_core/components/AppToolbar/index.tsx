@@ -13,10 +13,9 @@ import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Image from "next/image";
 
-import english from "~/public/assets/en.png";
 import logo from "~/public/assets/sourceIt.png";
-import swedish from "~/public/assets/sv.png";
 
+import { LanguageSwitcher } from "~/core/components/LanguageSwitcher";
 import { style } from "~/core/components/style";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -38,27 +37,11 @@ const LogoImage = styled(Image)(({ theme }) => ({
   },
 }));
 
-const LanguageImage = styled(Image)(() => ({
-  width: "24px",
-  height: "24px",
-  marginLeft: 7,
-  opacity: 0.8,
-  "&:hover": {
-    opacity: 1,
-    cursor: "pointer",
-  },
-}));
-
 export default function AppToolBar() {
   const [isOpen, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
-  };
-
-  const handleLanguageChange = (lang: string) => {
-    // handle language translation here
-    console.log(lang);
   };
 
   return (
@@ -100,10 +83,7 @@ export default function AppToolBar() {
             <Link sx={style.navLink} href="https://sourceit.se/#faq">
               <Typography sx={style.navText}>FAQ’s</Typography>
             </Link>
-            <Box sx={{ marginLeft: 7.25 }}>
-              <LanguageImage src={english} alt="English" />
-              <LanguageImage src={swedish} alt="Swedish" />
-            </Box>
+            <LanguageSwitcher />
           </Box>
         </Box>
         <Box sx={{ display: { sm: "flex", md: "none" } }}>
@@ -140,16 +120,7 @@ export default function AppToolBar() {
                 Faq’s
               </MenuItem>
               <MenuItem>
-                <LanguageImage
-                  src={english}
-                  alt="English"
-                  onClick={() => handleLanguageChange("en")}
-                />
-                <LanguageImage
-                  src={swedish}
-                  alt="Swedish"
-                  onClick={() => handleLanguageChange("sv")}
-                />
+                <LanguageSwitcher />
               </MenuItem>
             </Box>
           </Drawer>
