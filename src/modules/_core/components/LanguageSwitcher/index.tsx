@@ -95,7 +95,7 @@ const LanguageSwitcher = () => {
     // We just need to set the related cookie and reload the page
     // "/auto/" prefix is Google's definition as far as a cookie name
     destroyCookie(null, COOKIE_NAME);
-    setCookie(null, COOKIE_NAME, `/auto/${lang}`);
+    setCookie(null, COOKIE_NAME, `/en/${lang}`);
     window.location.reload();
   };
 
@@ -106,7 +106,7 @@ const LanguageSwitcher = () => {
       {languageConfig.languages.map((ld: LanguageDescriptor) => (
         <Fragment key={ld.name}>
           {currentLanguage === ld.name ||
-          (currentLanguage === "auto" &&
+          (currentLanguage === "en" &&
             languageConfig.defaultLanguage === ld) ? (
             <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
               <span key={`l_s_${ld}`}>
