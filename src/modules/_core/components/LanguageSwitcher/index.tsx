@@ -96,6 +96,7 @@ const LanguageSwitcher = () => {
     // "/auto/" prefix is Google's definition as far as a cookie name
     // destroyCookie(null, COOKIE_NAME);
     setCookie(null, COOKIE_NAME, `/en/${lang}`);
+    setCurrentLanguage(lang);
     console.log("language cookie:", parseCookies());
     // eslint-disable-next-line no-debugger
     debugger;
