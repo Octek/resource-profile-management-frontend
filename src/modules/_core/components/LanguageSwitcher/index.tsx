@@ -92,15 +92,18 @@ const LanguageSwitcher = () => {
   }
 
   const switchLanguage = (targetLanguage: string) => () => {
+    console.log("currentLanguage:", currentLanguage);
     console.log("targetLang:", targetLanguage);
     // We just need to set the related cookie and reload the page
-    const sourceLanguage = targetLanguage === "en" ? "sv" : "en";
-    const cookieValue = `/${sourceLanguage}/${targetLanguage}`;
-    console.log("Setting Cookie:", cookieValue);
+    const languageValue = currentLanguage;
+    const cookieValue = `/${languageValue}/${targetLanguage}`;
+
     setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
       domain: ".sourceit.se",
     });
+
+    console.log("Saved Cookie:", parseCookies());
     setTimeout(() => {
       window.location.reload();
     }, 200);
