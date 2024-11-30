@@ -101,7 +101,7 @@ const LanguageSwitcher = () => {
 
     setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
-      domain: ".sourceit.se",
+      domain: "profiles.sourceit.se",
     });
 
     console.log("Saved Cookie:", parseCookies()[COOKIE_NAME]);
