@@ -93,14 +93,11 @@ const LanguageSwitcher = () => {
 
   const switchLanguage = (lang: string) => () => {
     // We just need to set the related cookie and reload the page
-    // "/auto/" prefix is Google's definition as far as a cookie name
-    // destroyCookie(null, COOKIE_NAME);
     setCookie(null, COOKIE_NAME, `/en/${lang}`);
-    setCurrentLanguage(lang);
-    console.log("language cookie:", parseCookies());
-    // eslint-disable-next-line no-debugger
-    debugger;
-    window.location.reload();
+    console.log("cookie set: ", parseCookies());
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   };
 
   console.log("current language:", currentLanguage);
