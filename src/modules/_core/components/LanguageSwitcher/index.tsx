@@ -6,7 +6,7 @@ import { Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { parseCookies, setCookie } from "nookies";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 
 import english from "~/public/assets/en.png";
 import swedish from "~/public/assets/sv.png";
@@ -96,6 +96,12 @@ const LanguageSwitcher = () => {
   const switchLanguage = (targetLanguage: string) => () => {
     console.log("change language:", currentLanguage, targetLanguage);
     // We just need to set the related cookie and reload the page
+
+    destroyCookie(null, COOKIE_NAME, {
+      path: "/",
+      domain: ".sourceit.se",
+    });
+
     const languageValue = currentLanguage;
     const cookieValue = `/${languageValue}/${targetLanguage}`;
 
