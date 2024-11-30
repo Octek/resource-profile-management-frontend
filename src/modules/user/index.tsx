@@ -89,7 +89,7 @@ export default function User() {
                       display: "flex",
                       flexDirection: "column",
                       // my: { xs: 16, md: 2 }, // Dynamic spacing
-                      marginTop: 16,
+                      marginTop: 12,
                       gap: 4,
                       boxSizing: "border-box",
                       padding: { xs: 2, md: 4 }, // Padding for smaller screens
@@ -147,7 +147,7 @@ export default function User() {
                       gap: 4,
                     }}
                   >
-                    <Grid spacing={4}>
+                    <Grid container spacing={4}>
                       <Grid item xs={12} lg={10}>
                         <UserExperience experiences={userData.experiences} />
                       </Grid>

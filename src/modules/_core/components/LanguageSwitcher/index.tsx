@@ -1,10 +1,12 @@
+/* eslint-disable @typescript-eslint/no-magic-numbers */
 /* eslint-disable id-length */
 "use client";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import { Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { parseCookies, setCookie } from "nookies";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
 
 import english from "~/public/assets/en.png";
 import swedish from "~/public/assets/sv.png";
@@ -12,15 +14,17 @@ import swedish from "~/public/assets/sv.png";
 const LanguageImage = styled(Image)(() => ({
   width: "24px",
   height: "24px",
-  marginLeft: 7,
+  marginLeft: 3,
+  marginRight: 4,
   opacity: 1,
 }));
 
 const LanguageImageLink = styled(Image)(() => ({
   width: "24px",
   height: "24px",
-  marginLeft: 7,
-  opacity: 0.7,
+  marginLeft: 3,
+  marginRight: 4,
+  opacity: 0.4,
   "&:hover": {
     opacity: 1,
     cursor: "pointer",
@@ -59,6 +63,7 @@ const LanguageSwitcher = () => {
     const existingLanguageCookieValue = cookies[COOKIE_NAME];
 
     let languageValue;
+    console.log("language cookie:", existingLanguageCookieValue);
     if (existingLanguageCookieValue) {
       // 2. If the cookie is defined, extract a language nickname from there.
       const sp = existingLanguageCookieValue.split("/");
@@ -86,47 +91,48 @@ const LanguageSwitcher = () => {
     return null;
   }
 
-  // The following function switches the current language
   const switchLanguage = (lang: string) => () => {
     // We just need to set the related cookie and reload the page
     // "/auto/" prefix is Google's definition as far as a cookie name
+    destroyCookie(null, COOKIE_NAME);
     setCookie(null, COOKIE_NAME, `/auto/${lang}`);
     window.location.reload();
   };
 
+  console.log("current language:", currentLanguage);
+
   return (
     <Box sx={{ marginLeft: 7.25 }}>
       {languageConfig.languages.map((ld: LanguageDescriptor) => (
-        <>
+        <Fragment key={ld.name}>
           {currentLanguage === ld.name ||
           (currentLanguage === "auto" &&
             languageConfig.defaultLanguage === ld) ? (
-            <span
-              key={`l_s_${ld}`}
-              className="mx-3 text-orange-300"
-              style={{ color: "#000" }}
-            >
-              {currentLanguage === "en" ? (
-                <LanguageImage src={english} alt="English" />
-              ) : (
-                <LanguageImage src={swedish} alt="Swedish" />
-              )}
-            </span>
+            <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
+              <span key={`l_s_${ld}`}>
+                {currentLanguage === "en" ? (
+                  <LanguageImage src={english} alt="English" />
+                ) : (
+                  <LanguageImage src={swedish} alt="Swedish" />
+                )}
+              </span>
+            </Tooltip>
           ) : (
-            <a
-              key={`l_s_${ld}`}
-              onClick={switchLanguage(ld.name)}
-              className="mx-3 text-blue-300 cursor-pointer hover:underline"
-              style={{ color: "#000" }}
-            >
-              {currentLanguage === "sv" ? (
-                <LanguageImageLink src={english} alt="English" />
-              ) : (
-                <LanguageImageLink src={swedish} alt="Swedish" />
-              )}
-            </a>
+            <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
+              <a
+                key={`l_s_${ld}`}
+                onClick={switchLanguage(ld.name)}
+                className="cursor-pointer hover:underline"
+              >
+                {currentLanguage === "sv" ? (
+                  <LanguageImageLink src={english} alt="English" />
+                ) : (
+                  <LanguageImageLink src={swedish} alt="Swedish" />
+                )}
+              </a>
+            </Tooltip>
           )}
-        </>
+        </Fragment>
       ))}
     </Box>
   );

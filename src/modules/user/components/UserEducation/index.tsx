@@ -14,7 +14,7 @@ export default function UserEducation({ educations }: UserEducationsProps) {
   return (
     <Fragment>
       <Box sx={{ width: "100%" }} flexDirection="column">
-        <Grid container direction="row" xs={12} spacing={3}>
+        <Grid container direction="row" spacing={3}>
           <Grid item sm={12} lg={4}>
             <Typography
               variant="h1"

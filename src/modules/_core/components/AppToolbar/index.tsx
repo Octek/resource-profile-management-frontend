@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 import { useState } from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -49,7 +50,10 @@ export default function AppToolBar() {
       position="fixed"
       sx={{ boxShadow: "3px 4px 10px 0px rgba(0,0,0,0.5)" }}
     >
-      <StyledToolbar disableGutters sx={{ paddingLeft: 11, paddingRight: 1 }}>
+      <StyledToolbar
+        disableGutters
+        sx={{ paddingLeft: { xs: 1, lg: 11 }, paddingRight: 1 }}
+      >
         <Box
           sx={{
             flexGrow: 1,
@@ -58,32 +62,43 @@ export default function AppToolBar() {
             justifyContent: "space-between",
           }}
         >
-          <LogoImage src={logo} alt="Source It" />
+          <Link sx={style.navLink} href="https://sourceit.se/#">
+            <LogoImage src={logo} alt="Source It" />
+          </Link>
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
-              // eslint-disable-next-line id-length
+              display: "flex",
               paddingRight: { xs: 2, lg: 10 },
             }}
           >
-            <Link sx={style.navLink} href="https://sourceit.se/#">
-              <Typography sx={style.navText}> Home</Typography>
-            </Link>
-            <Link
-              sx={style.navLink}
-              href="https://sourceit.se/#find_a_developer"
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                // eslint-disable-next-line id-length
+                paddingRight: { xs: 2, lg: 2 },
+              }}
             >
-              <Typography sx={style.navText}>
-                Looking for senior developers
-              </Typography>
-            </Link>
-            <Link sx={style.navLink} href="https://sourceit.se/#contact">
-              <Typography sx={style.navText}>Contact us</Typography>
-            </Link>
-            <Link sx={style.navLink} href="https://sourceit.se/#faq">
-              <Typography sx={style.navText}>FAQ’s</Typography>
-            </Link>
-            <LanguageSwitcher />
+              <Link sx={style.navLink} href="https://sourceit.se/#">
+                <Typography sx={style.navText}> Home</Typography>
+              </Link>
+              <Link
+                sx={style.navLink}
+                href="https://sourceit.se/#find_a_developer"
+              >
+                <Typography sx={style.navText}>
+                  Looking for senior developers
+                </Typography>
+              </Link>
+              <Link sx={style.navLink} href="https://sourceit.se/#contact">
+                <Typography sx={style.navText}>Contact us</Typography>
+              </Link>
+              <Link sx={style.navLink} href="https://sourceit.se/#faq">
+                <Typography sx={style.navText}>FAQ’s</Typography>
+              </Link>
+            </Box>
+            <Box>
+              <LanguageSwitcher />
+            </Box>
           </Box>
         </Box>
         <Box sx={{ display: { sm: "flex", md: "none" } }}>
@@ -118,9 +133,6 @@ export default function AppToolBar() {
               </MenuItem>
               <MenuItem component={Link} href="https://sourceit.se/#faq">
                 Faq’s
-              </MenuItem>
-              <MenuItem>
-                <LanguageSwitcher />
               </MenuItem>
             </Box>
           </Drawer>
