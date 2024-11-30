@@ -27,7 +27,7 @@ export default function UserExperience({ experiences }: UserExperienceProps) {
           {labels.selectedExperience}
         </Typography>
 
-        <Grid container direction="row" xs={12} spacing={3}>
+        <Grid container direction="row" spacing={3}>
           <Grid item sm={12} lg={4}>
             <Typography
               sx={{
