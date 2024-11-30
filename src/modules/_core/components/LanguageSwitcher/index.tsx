@@ -91,16 +91,17 @@ const LanguageSwitcher = () => {
     return null;
   }
 
-  const switchLanguage = (lang: string) => () => {
+  const switchLanguage = (targetLanguage: string) => () => {
+    console.log("targetLang:", targetLanguage);
     // We just need to set the related cookie and reload the page
-    setCookie(null, COOKIE_NAME, `/en/${lang}`);
-    console.log("cookie set: ", parseCookies());
+    const sourceLanguage = targetLanguage === "en" ? "sv" : "en";
+    setCookie(null, COOKIE_NAME, `/${sourceLanguage}/${targetLanguage}`);
     setTimeout(() => {
       window.location.reload();
-    }, 1000);
+    }, 200);
   };
 
-  console.log("current language:", currentLanguage);
+  
 
   return (
     <Box sx={{ marginLeft: 7.25 }}>
