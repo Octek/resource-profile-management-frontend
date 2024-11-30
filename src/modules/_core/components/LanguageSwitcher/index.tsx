@@ -97,10 +97,9 @@ const LanguageSwitcher = () => {
     const sourceLanguage = targetLanguage === "en" ? "sv" : "en";
     const cookieValue = `/${sourceLanguage}/${targetLanguage}`;
     console.log("Setting Cookie:", cookieValue);
-    setCookie(null, COOKIE_NAME, encodeURIComponent(cookieValue), {
+    setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
       domain: ".sourceit.se",
-      sameSite: "Lax",
     });
     setTimeout(() => {
       window.location.reload();
