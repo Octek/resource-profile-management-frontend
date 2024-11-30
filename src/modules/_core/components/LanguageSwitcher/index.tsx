@@ -64,15 +64,14 @@ const LanguageSwitcher = () => {
 
     let languageValue;
     console.log("language cookie:", existingLanguageCookieValue);
-    const decodedLanguageCookieValue = decodeURIComponent(
-      existingLanguageCookieValue
-    );
-    if (decodedLanguageCookieValue) {
+    if (existingLanguageCookieValue) {
       // 2. If the cookie is defined, extract a language nickname from there.
-      const sp = decodedLanguageCookieValue.split("/");
+      const sp = existingLanguageCookieValue.split("/");
       if (sp.length > 2) {
         // eslint-disable-next-line prefer-destructuring
         languageValue = sp[2];
+      } else {
+        languageValue = "sv";
       }
     }
     // 3. If __GOOGLE_TRANSLATION_CONFIG__ is defined and we still not decided about languageValue - use default one
@@ -95,18 +94,17 @@ const LanguageSwitcher = () => {
   }
 
   const switchLanguage = (targetLanguage: string) => () => {
-    console.log("currentLanguage:", currentLanguage);
-    console.log("targetLang:", targetLanguage);
+    console.log("change language:", currentLanguage, targetLanguage);
     // We just need to set the related cookie and reload the page
     const languageValue = currentLanguage;
     const cookieValue = `/${languageValue}/${targetLanguage}`;
 
-    setCookie(null, COOKIE_NAME, encodeURIComponent(cookieValue), {
+    setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
       domain: ".sourceit.se",
     });
 
-    console.log("Saved Cookie:", parseCookies());
+    console.log("Saved Cookie:", parseCookies()[COOKIE_NAME]);
     setTimeout(() => {
       window.location.reload();
     }, 200);
