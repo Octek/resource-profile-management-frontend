@@ -64,9 +64,12 @@ const LanguageSwitcher = () => {
 
     let languageValue;
     console.log("language cookie:", existingLanguageCookieValue);
-    if (existingLanguageCookieValue) {
+    const decodedLanguageCookieValue = decodeURIComponent(
+      existingLanguageCookieValue
+    );
+    if (decodedLanguageCookieValue) {
       // 2. If the cookie is defined, extract a language nickname from there.
-      const sp = existingLanguageCookieValue.split("/");
+      const sp = decodedLanguageCookieValue.split("/");
       if (sp.length > 2) {
         // eslint-disable-next-line prefer-destructuring
         languageValue = sp[2];
@@ -98,7 +101,7 @@ const LanguageSwitcher = () => {
     const languageValue = currentLanguage;
     const cookieValue = `/${languageValue}/${targetLanguage}`;
 
-    setCookie(null, COOKIE_NAME, cookieValue, {
+    setCookie(null, COOKIE_NAME, encodeURIComponent(cookieValue), {
       path: "/",
       domain: ".sourceit.se",
     });
