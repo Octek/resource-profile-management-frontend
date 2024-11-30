@@ -95,13 +95,17 @@ const LanguageSwitcher = () => {
     console.log("targetLang:", targetLanguage);
     // We just need to set the related cookie and reload the page
     const sourceLanguage = targetLanguage === "en" ? "sv" : "en";
-    setCookie(null, COOKIE_NAME, `/${sourceLanguage}/${targetLanguage}`);
+    const cookieValue = `/${sourceLanguage}/${targetLanguage}`;
+    console.log("Setting Cookie:", cookieValue);
+    setCookie(null, COOKIE_NAME, encodeURIComponent(cookieValue), {
+      path: "/",
+      domain: ".sourceit.se",
+      sameSite: "Lax",
+    });
     setTimeout(() => {
       window.location.reload();
     }, 200);
   };
-
-  
 
   return (
     <Box sx={{ marginLeft: 7.25 }}>
