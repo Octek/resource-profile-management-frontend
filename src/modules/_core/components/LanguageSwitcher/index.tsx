@@ -6,7 +6,7 @@ import { Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import styled from "@emotion/styled";
-import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { parseCookies, setCookie } from "nookies";
 
 import english from "~/public/assets/en.png";
 import swedish from "~/public/assets/sv.png";
@@ -94,8 +94,11 @@ const LanguageSwitcher = () => {
   const switchLanguage = (lang: string) => () => {
     // We just need to set the related cookie and reload the page
     // "/auto/" prefix is Google's definition as far as a cookie name
-    destroyCookie(null, COOKIE_NAME);
+    // destroyCookie(null, COOKIE_NAME);
     setCookie(null, COOKIE_NAME, `/en/${lang}`);
+    console.log("language cookie:", parseCookies());
+    // eslint-disable-next-line no-debugger
+    debugger;
     window.location.reload();
   };
 
