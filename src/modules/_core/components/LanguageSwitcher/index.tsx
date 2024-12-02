@@ -97,26 +97,23 @@ const LanguageSwitcher = () => {
     console.log("change language:", currentLanguage, targetLanguage);
     // We just need to set the related cookie and reload the page
 
-    // Destroy all cookies
-    destroyCookie(null, COOKIE_NAME, {
-      path: "/",
-      domain: ".sourceit.se",
-    });
-    destroyCookie(null, COOKIE_NAME, {
-      path: "/",
-      domain: "profiles.sourceit.se",
-    });
-
-    const languageValue = currentLanguage;
-    const cookieValue = `/${languageValue}/${targetLanguage}`;
-
-    if (targetLanguage == "sv") {
-      setCookie(null, COOKIE_NAME, cookieValue, {
+    if (targetLanguage == "en") {
+      // Destroy all cookies
+      destroyCookie(null, COOKIE_NAME, {
         path: "/",
-        domain: "profiles.sourceit.se",
+        // domain: ".sourceit.se",
       });
     }
-    console.log("Saved Cookie:", parseCookies()[COOKIE_NAME]);
+
+    if (targetLanguage == "sv") {
+      const languageValue = currentLanguage;
+      const cookieValue = `/${languageValue}/${targetLanguage}`;
+      setCookie(null, COOKIE_NAME, cookieValue, {
+        path: "/",
+        // domain: "profiles.sourceit.se",
+      });
+      console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
+    }
     setTimeout(() => {
       window.location.reload();
     }, 200);
