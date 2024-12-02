@@ -117,24 +117,27 @@ const LanguageSwitcher = () => {
   const switchLanguage = (targetLanguage: string) => () => {
     console.log("change language:", currentLanguage, targetLanguage);
     setCurrentLanguage(targetLanguage);
-
+    let cookieValue = "/sv/en";
     if (targetLanguage == "en") {
       deleteAllCookies();
-      const cookieValue = `/sv/en`;
-      setCookie(null, COOKIE_NAME, cookieValue, {
-        path: "/",
-      });
-      setTimeout(() => {
-        window.location.reload();
-      }, 200);
+      cookieValue = `/sv/en`;
     } else if (targetLanguage == "sv") {
       const languageValue = currentLanguage;
-      const cookieValue = `/${languageValue}/${targetLanguage}`;
-      setCookie(null, COOKIE_NAME, cookieValue, {
-        path: "/",
-      });
-      console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
+      cookieValue = `/${languageValue}/${targetLanguage}`;
     }
+    setCookie(null, COOKIE_NAME, cookieValue, {
+      path: "/",
+      domain: "sourceit.se",
+    });
+    setCookie(null, COOKIE_NAME, cookieValue, {
+      path: "/",
+      domain: ".sourceit.se",
+    });
+    setCookie(null, COOKIE_NAME, cookieValue, {
+      path: "/",
+      domain: "profiles.sourceit.se",
+    });
+    console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
     setTimeout(() => {
       window.location.reload();
     }, 200);
