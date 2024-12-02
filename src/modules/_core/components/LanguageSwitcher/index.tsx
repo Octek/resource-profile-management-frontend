@@ -58,20 +58,22 @@ const LanguageSwitcher = () => {
 
   // Initialize translation engine
   useEffect(() => {
+    if (currentLanguage == "en") {
+      deleteAllCookies();
+    }
+
     // 1. Read the cookie
     const cookies = parseCookies();
+    console.log("All Cookies", cookies);
     const existingLanguageCookieValue = cookies[COOKIE_NAME];
 
     let languageValue;
-    console.log("language cookie:", existingLanguageCookieValue);
     if (existingLanguageCookieValue) {
       // 2. If the cookie is defined, extract a language nickname from there.
       const sp = existingLanguageCookieValue.split("/");
       if (sp.length > 2) {
         // eslint-disable-next-line prefer-destructuring
         languageValue = sp[2];
-      } else {
-        languageValue = "sv";
       }
     }
     // 3. If __GOOGLE_TRANSLATION_CONFIG__ is defined and we still not decided about languageValue - use default one
@@ -86,6 +88,7 @@ const LanguageSwitcher = () => {
     if (global.__GOOGLE_TRANSLATION_CONFIG__) {
       setLanguageConfig(global.__GOOGLE_TRANSLATION_CONFIG__);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Don't display anything if current language information is unavailable.
@@ -93,30 +96,34 @@ const LanguageSwitcher = () => {
     return null;
   }
 
+  const deleteAllCookies = () => {
+    const cookies = parseCookies(); // Retrieve all cookies in the given context
+    Object.keys(cookies).forEach((cookieName) => {
+      destroyCookie(null, cookieName, {
+        path: "/", // Ensure the cookie path is correctly targeted
+      });
+    });
+
+    console.log("All cookies have been deleted.");
+  };
+
   const switchLanguage = (targetLanguage: string) => () => {
     console.log("change language:", currentLanguage, targetLanguage);
-    // We just need to set the related cookie and reload the page
+    setCurrentLanguage(targetLanguage);
 
     if (targetLanguage == "en") {
-      // Destroy all cookies
-      destroyCookie(null, COOKIE_NAME, {
-        path: "/",
-        // domain: ".sourceit.se",
-      });
-    }
-
-    if (targetLanguage == "sv") {
+      deleteAllCookies();
+    } else if (targetLanguage == "sv") {
       const languageValue = currentLanguage;
       const cookieValue = `/${languageValue}/${targetLanguage}`;
       setCookie(null, COOKIE_NAME, cookieValue, {
         path: "/",
-        // domain: "profiles.sourceit.se",
       });
       console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
     }
-    setTimeout(() => {
-      window.location.reload();
-    }, 200);
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 200);
   };
 
   return (
