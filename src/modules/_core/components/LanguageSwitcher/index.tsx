@@ -101,6 +101,10 @@ const LanguageSwitcher = () => {
       path: "/",
       domain: ".sourceit.se",
     });
+    destroyCookie(null, COOKIE_NAME, {
+      path: "/",
+      domain: "profiles.sourceit.se",
+    });
 
     const languageValue = currentLanguage;
     const cookieValue = `/${languageValue}/${targetLanguage}`;
