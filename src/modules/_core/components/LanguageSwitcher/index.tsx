@@ -72,7 +72,8 @@ const LanguageSwitcher = () => {
         languageValue = sp[2];
       }
     } else {
-      const cookieValue = `/en/sv`;
+      deleteAllCookies();
+      const cookieValue = decodeURIComponent(`/en/sv`);
       setCookie(null, COOKIE_NAME, cookieValue, {
         path: "/",
       });
@@ -106,8 +107,15 @@ const LanguageSwitcher = () => {
       destroyCookie(null, cookieName, {
         path: "/",
       });
+      destroyCookie(null, cookieName, { path: "/", domain: "sourceit.se" });
+      destroyCookie(null, cookieName, { path: "/", domain: ".sourceit.se" });
       destroyCookie(null, cookieName, {
         path: "/",
+        domain: "profiles.sourceit.se",
+      });
+      destroyCookie(null, cookieName, {
+        path: "/",
+        domain: ".profiles.sourceit.se",
       });
     });
 
@@ -117,25 +125,25 @@ const LanguageSwitcher = () => {
   const switchLanguage = (targetLanguage: string) => () => {
     console.log("change language:", currentLanguage, targetLanguage);
     setCurrentLanguage(targetLanguage);
-    let cookieValue = "/sv/en";
+    let cookieValue = decodeURIComponent(`/sv/en`);
     if (targetLanguage == "en") {
       deleteAllCookies();
-      cookieValue = `/sv/en`;
+      cookieValue = decodeURIComponent(`/sv/en`);
     } else if (targetLanguage == "sv") {
-      const languageValue = currentLanguage;
-      cookieValue = `/${languageValue}/${targetLanguage}`;
+      deleteAllCookies();
+      cookieValue = decodeURIComponent(`/en/sv`);
     }
     setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
-      domain: "sourceit.se",
+      // domain: "sourceit.se",
     });
     setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
-      domain: ".sourceit.se",
+      // domain: ".sourceit.se",
     });
     setCookie(null, COOKIE_NAME, cookieValue, {
       path: "/",
-      domain: "profiles.sourceit.se",
+      // domain: "profiles.sourceit.se",
     });
     console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
     setTimeout(() => {
