@@ -1,8 +1,17 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useRouter } from "next/router"; // Use Next.js router for client-side navigation
 
 import { labels } from "~/core/utils/labels";
 
+const { text404, pageNotFound, pageNotExist, goToHomepage } = labels;
+
 export default function NotFoundPage() {
+  const router = useRouter();
+
+  const handleGoHome = () => {
+    router.push("/"); // Use Next.js router to navigate
+  };
+
   return (
     <Box
       display="flex"
@@ -11,35 +20,37 @@ export default function NotFoundPage() {
       justifyContent="center"
       height="100vh"
       textAlign="center"
+      padding={2} // Optional: adds padding to avoid edges being too close
     >
       <Box marginBottom={3}>
-        <svg
-          width="200"
-          height="100"
-          viewBox="0 0 200 100"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <Typography
+          variant="h1"
+          gutterBottom
+          sx={{
+            fontSize: 100,
+            color: "rgba(43, 182, 115, 0.7)",
+            fontWeight: "500",
+          }}
         >
-          <text x="10" y="70" fontSize="80" fontWeight="bold" fill="#FF6B6B">
-            {labels.text404}
-          </text>
-        </svg>
+          {text404}
+        </Typography>
       </Box>
 
       <Typography variant="h4" gutterBottom>
-        {labels.pageNotFound}
+        {pageNotFound}
       </Typography>
 
       <Typography variant="body1" color="textSecondary" marginBottom={2}>
-        {labels.pageNotExist}
+        {pageNotExist}
       </Typography>
 
       <Button
         variant="contained"
         color="secondary"
-        onClick={() => (window.location.href = "/")}
+        onClick={handleGoHome}
+        sx={{ width: "auto" }} // Optional: ensures the button doesn't stretch too much
       >
-        {labels.goToHomepage}
+        {goToHomepage}
       </Button>
     </Box>
   );

@@ -37,6 +37,11 @@ export default function User() {
   } = useGetProfile();
 
   useEffect(() => {
+    if (
+      !(router.isReady && router.query && Object.keys(router.query).length > 0)
+    ) {
+      return;
+    }
     if (id) {
       if (/^\d+$/.test(id)) {
         setShowErrorMessage(false);
@@ -48,7 +53,7 @@ export default function User() {
       setShowErrorMessage(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, router]);
+  }, [id, router.isReady]);
 
   useEffect(() => {
     if (data) {

@@ -54,20 +54,16 @@ declare global {
 
 const LanguageSwitcher = () => {
   const [currentLanguage, setCurrentLanguage] = useState<string>();
-  const [languageConfig, setLanguageConfig] = useState<any>();
+  // const [languageConfig, setLanguageConfig] = useState<any>();
 
   // Initialize translation engine
   useEffect(() => {
-    if (currentLanguage == "en") {
-      deleteAllCookies();
-    }
-
     // 1. Read the cookie
     const cookies = parseCookies();
-    console.log("All Cookies", cookies);
-    const existingLanguageCookieValue = cookies[COOKIE_NAME];
 
-    let languageValue;
+    const existingLanguageCookieValue = cookies[COOKIE_NAME];
+    console.log("All Cookies", existingLanguageCookieValue);
+    let languageValue = "sv";
     if (existingLanguageCookieValue) {
       // 2. If the cookie is defined, extract a language nickname from there.
       const sp = existingLanguageCookieValue.split("/");
@@ -75,7 +71,20 @@ const LanguageSwitcher = () => {
         // eslint-disable-next-line prefer-destructuring
         languageValue = sp[2];
       }
+    } else {
+      const cookieValue = `/en/sv`;
+      setCookie(null, COOKIE_NAME, cookieValue, {
+        path: "/",
+      });
+      console.log(
+        "Cookies Was empty and setting default SV language >>>>>>",
+        languageValue
+      );
+      setTimeout(() => {
+        window.location.reload();
+      }, 200);
     }
+
     // 3. If __GOOGLE_TRANSLATION_CONFIG__ is defined and we still not decided about languageValue - use default one
     if (global.__GOOGLE_TRANSLATION_CONFIG__ && !languageValue) {
       languageValue = global.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage;
@@ -85,16 +94,11 @@ const LanguageSwitcher = () => {
       setCurrentLanguage(languageValue);
     }
     // 5. Set the language config.
-    if (global.__GOOGLE_TRANSLATION_CONFIG__) {
-      setLanguageConfig(global.__GOOGLE_TRANSLATION_CONFIG__);
-    }
+    // if (global.__GOOGLE_TRANSLATION_CONFIG__) {
+    //   setLanguageConfig(global.__GOOGLE_TRANSLATION_CONFIG__);
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // Don't display anything if current language information is unavailable.
-  if (!currentLanguage || !languageConfig) {
-    return null;
-  }
 
   const deleteAllCookies = () => {
     const cookies = parseCookies(); // Retrieve all cookies in the given context
@@ -104,11 +108,10 @@ const LanguageSwitcher = () => {
       });
       destroyCookie(null, cookieName, {
         path: "/",
-        domain: ".sourceit.se",
       });
     });
 
-    console.log("All cookies have been deleted.");
+    console.log("Deleting all cookies.");
   };
 
   const switchLanguage = (targetLanguage: string) => () => {
@@ -117,6 +120,13 @@ const LanguageSwitcher = () => {
 
     if (targetLanguage == "en") {
       deleteAllCookies();
+      const cookieValue = `/sv/en`;
+      setCookie(null, COOKIE_NAME, cookieValue, {
+        path: "/",
+      });
+      setTimeout(() => {
+        window.location.reload();
+      }, 200);
     } else if (targetLanguage == "sv") {
       const languageValue = currentLanguage;
       const cookieValue = `/${languageValue}/${targetLanguage}`;
@@ -129,40 +139,42 @@ const LanguageSwitcher = () => {
       window.location.reload();
     }, 200);
   };
-
   return (
     <Box sx={{ marginLeft: 7.25 }}>
-      {languageConfig.languages.map((ld: LanguageDescriptor) => (
-        <Fragment key={ld.name}>
-          {currentLanguage === ld.name ||
-          (currentLanguage === "en" &&
-            languageConfig.defaultLanguage === ld) ? (
-            <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
-              <span key={`l_s_${ld}`}>
-                {currentLanguage === "en" ? (
-                  <LanguageImage src={english} alt="English" />
-                ) : (
-                  <LanguageImage src={swedish} alt="Swedish" />
-                )}
-              </span>
-            </Tooltip>
-          ) : (
-            <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
-              <a
-                key={`l_s_${ld}`}
-                onClick={switchLanguage(ld.name)}
-                className="cursor-pointer hover:underline"
-              >
-                {currentLanguage === "sv" ? (
-                  <LanguageImageLink src={english} alt="English" />
-                ) : (
-                  <LanguageImageLink src={swedish} alt="Swedish" />
-                )}
-              </a>
-            </Tooltip>
-          )}
-        </Fragment>
-      ))}
+      {global.__GOOGLE_TRANSLATION_CONFIG__.languages.map(
+        (ld: LanguageDescriptor) => (
+          <Fragment key={ld.name}>
+            {currentLanguage === ld.name ||
+            (currentLanguage === "en" &&
+              global.__GOOGLE_TRANSLATION_CONFIG__.defaultLanguage ===
+                ld.name) ? (
+              <Tooltip title={ld.title} key={`tooltip_active_${ld.name}`}>
+                <span key={`l_s_${ld.name}`}>
+                  {currentLanguage === "en" ? (
+                    <LanguageImage src={english} alt="English" />
+                  ) : (
+                    <LanguageImage src={swedish} alt="Swedish" />
+                  )}
+                </span>
+              </Tooltip>
+            ) : (
+              <Tooltip title={ld.title} key={`tooltip_inactive_${ld.name}`}>
+                <a
+                  key={`l_s_${ld.name}`}
+                  onClick={switchLanguage(ld.name)}
+                  className="cursor-pointer hover:underline"
+                >
+                  {currentLanguage === "sv" ? (
+                    <LanguageImageLink src={english} alt="English" />
+                  ) : (
+                    <LanguageImageLink src={swedish} alt="Swedish" />
+                  )}
+                </a>
+              </Tooltip>
+            )}
+          </Fragment>
+        )
+      )}
     </Box>
   );
 };
