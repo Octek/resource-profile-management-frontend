@@ -100,7 +100,11 @@ const LanguageSwitcher = () => {
     const cookies = parseCookies(); // Retrieve all cookies in the given context
     Object.keys(cookies).forEach((cookieName) => {
       destroyCookie(null, cookieName, {
-        path: "/", // Ensure the cookie path is correctly targeted
+        path: "/",
+      });
+      destroyCookie(null, cookieName, {
+        path: "/",
+        domain: ".sourceit.se",
       });
     });
 
@@ -121,9 +125,9 @@ const LanguageSwitcher = () => {
       });
       console.log(":::::Saved Cookie:", parseCookies()[COOKIE_NAME]);
     }
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 200);
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
   };
 
   return (
